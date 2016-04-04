@@ -14,7 +14,7 @@ exports.up = function(knex, Promise) {
    t.float('total_points');
    t.boolean('is_admin');
    t.boolean('is_agency');
-   t.boolean('is_captioner');
+   t.boolean('is_piper');
    t.string('time');
  })
 };

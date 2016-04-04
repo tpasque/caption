@@ -55,7 +55,11 @@ app.controller('mainController', ['$scope', '$location','$auth','$rootScope','po
      }
 
   })
+  //this checks our $scope on the mainController
   console.log($scope);
+  //this looks to see if the user has been to the site before, and if so, if they are logged in on
+  //their social environment (facebook in this case), it converts $scope.user using JSON.stringify
+  //to provide information that our application will use for a given user.
   console.log("Logged in: " + JSON.stringify($scope.user));
 
   posts.getUserData().then(function (user) {

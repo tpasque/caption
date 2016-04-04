@@ -44,9 +44,8 @@ function verifyToken(user){
   return jwt.verify(user, process.env.TOKEN_SECRET)
 }
 
-//Satellizer route that authenticates the user and logs them in.
-router.post('/auth/facebook', function(req,res){
-  console.log("req is"+req);
+//Satellizer OAuth route that authenticates the user and logs them in.
+router.post('/auth/facebook', function(req, res, next){
   var fields = ['id', 'email', 'first_name', 'last_name', 'name'];
   var accessTokenUrl = 'https://graph.facebook.com/v2.5/oauth/access_token';
   var graphApiUrl = 'https://graph.facebook.com/v2.5/me?fields=' + fields.join(',');
@@ -64,6 +63,8 @@ router.post('/auth/facebook', function(req,res){
         if (response.statusCode !== 200) {
           return res.status(500).send({ message: profile.error.message });
         }
+        console.log("profile");
+        console.log(profile);
           var user = {}
           user.facebook_id = profile.id
           user.profile_image_url = 'https://graph.facebook.com/'+profile.id+'/picture?type=large'
@@ -76,6 +77,8 @@ router.post('/auth/facebook', function(req,res){
           user.total_points = 0;
           user.time = moment().calendar()
           var token = createToken(user)
+          console.log("USER");
+          console.log(user);
           Users().insert(user)
             .catch(function(error){
               console.log(error);
@@ -89,7 +92,9 @@ router.post('/auth/facebook', function(req,res){
 })
 
 //Verify User Logged in: getting user information
-router.post('/user', function(req, res){
+router.post('/user', function(req, res, next){
+  console.log("req.body in router.post /user route");
+  console.log(req.body);
   var token = req.body.token
   var user = verifyToken(token)
   Users().where('facebook_id', user.facebook_id).first().then(function(result){

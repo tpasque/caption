@@ -2,7 +2,9 @@
 <html ng-app="captionApp">
   <head>
     <meta charset="utf-8">
-    <title>Caption</title>
+    <title>Piper</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
       <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
@@ -12,19 +14,20 @@
   <body>
     <div id="navbar" class="navbar-collapse collapse" ng-controller="mainController">
         <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
-          <li ng-show="!user.session"><a href="/#/home" >Home</a></li>
+          <li ng-show="!user.session"><a href="/#/">Home</a></li>
           <li ng-show="user.session"><a href="/#/feed">Feed</a></li>
           <!-- <li ng-click="setNavTab()"><a ng-style="{'color': color.about}" href="/#/about">About</a></li> -->
           <!-- <li><a href="/#/contact">Contact</a></li> -->
           <li ng-show="!user.session" ng-click="authenticate('facebook')"><a href="/#/feed">Sign In</a></li>
           <!-- <a href="/#/login">Sign In</a></li> -->
-          <li ng-show="user.session"><a href="/#/home" ng-click="logout()">Logout</a></li>
+          <li ng-show="user.session"><a href="/#/" ng-click="logout()">Logout</a></li>
           <!-- <li ng-show="user.session"><a href="/#/profile">Profile</a></li>
           <li ng-show='isAdmin'><a href="/#/admin">Admin</a></li> -->
         </ul>
         <!-- <h4 class='userName'>Hi, <a class='headName' href="/#/profile">{{userName}}</a></h4> -->
       </div>
-    <h1>You are on the index - this will be the login page</h1>
+      <h1>Welcome to Piper</h1>
+      <h2>You are on the index - this will be the login page</h2>
 
     <div ng-view></div>
 

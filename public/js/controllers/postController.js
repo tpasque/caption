@@ -1,9 +1,13 @@
 app.controller("postController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', function ($scope, $http, $auth, $location, $route, posts) {
   posts.getUserData().then(function (user) {
+    console.log("#######");
+    console.log(user);
     $scope.userAdmin = user.is_admin
+    $scope.userAgency = user.is_agency
+    $scope.piper = user.is_piper
     $scope.user = user.facebook_id
     console.log("this is the $scope.user: "+$scope.user);
-    console.log($scope.userAdmin);
+    // console.log($scope.userAdmin);
   })
 
 
@@ -30,5 +34,5 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
 // posts.showPost().then(function(result){
 //   $scope.showPost = result;
 
-})
+// })
 }])
