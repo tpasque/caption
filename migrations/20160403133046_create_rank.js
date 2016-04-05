@@ -2,12 +2,15 @@
 exports.up = function(knex, Promise) {
  return knex.schema.createTable('rank', function(t){
    t.increments();
-   t.string('green_pepper');
-   t.string('banana_pepper');
-   t.string('jalapeno');
-   t.string('habanero');
-   t.string('jamaican_hot_pepper');
+   t.string('bell_pepper');
+   t.string('pimento_pepper');
+   t.string('poblano_pepper');
+   t.string('anaheim_pepper');
+   t.string('jalapeno_pepper');
+   t.string('cayenne_pepper');
+   t.string('habanero_pepper');
    t.string('ghost_pepper');
+   t.string('scorpion_pepper');
  })
 };
 
