@@ -1,0 +1,66 @@
+body{
+  height:100%;
+  width:100%;
+  background-color: #7D619F;
+}
+
+.indexTitle{
+  color: white;
+  font-size: 6.0em;
+  text-align: center;
+  /*text-transform: uppercase;*/
+  font-family: 'Andale Mono', AndaleMono, monospace;
+  /*font-family: 'Gotham Rounded A', 'Gotham Rounded B', HelveticaNeue, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;*/
+  margin-bottom: 3vh;
+  font-weight:100;
+}
+
+.indexImage{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.indexCallToAction{
+  color: white;
+  font-size: 2.0em;
+  text-align: center;
+  font-family: 'Andale Mono', AndaleMono, monospace;
+  margin-bottom: 3vh;
+  font-weight:100;
+}
+
+#navbar li a{
+  font-size: 1.5em;
+  text-decoration: none;
+  color: white;
+  font-weight: 200;
+  font-family: 'Andale Mono', AndaleMono, monospace;
+
+}
+
+#navbar li a:hover{
+     color:#F3B3B2;
+     text-decoration:underline;
+     cursor:pointer;
+     background-color: #7D619F;
+}
+
+.facebookSignInButton{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  height: 10vh;
+  width: 15vw;
+  background-color: #385A93;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  color:white;
+  font-size: 1.2em;
+  border-radius: 40px 40px 40px 40px;
+  border: none;
+}
+
+.facebookSignInButton:hover{
+  border: white 2px solid;
+}
