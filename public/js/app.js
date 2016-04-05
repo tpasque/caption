@@ -23,7 +23,7 @@ app.config(function ($routeProvider, $authProvider) {
       templateUrl: 'partials/home.html',
       controller: 'mainController'
     })
-    .when('/feed',{
+    .when('/posts',{
       templateUrl: 'partials/posts/index.html',
       controller: 'postController'
     })

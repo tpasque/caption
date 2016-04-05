@@ -1,5 +1,4 @@
 app.controller('mainController', ['$scope', '$location','$auth','$rootScope','posts', function ($scope, $location, $auth, $rootScope, posts) {
-  console.log("you are on the main controller");
 
   $scope.user = {}
 
@@ -20,7 +19,7 @@ app.controller('mainController', ['$scope', '$location','$auth','$rootScope','po
      $auth.authenticate(provider)
        .then(function(response) {
          console.log('You have successfully signed in with ' + provider + '!');
-         $location.path('/feed')
+         $location.path('/posts')
        })
        .catch(function(error) {
          if (error.error) {
@@ -56,11 +55,12 @@ app.controller('mainController', ['$scope', '$location','$auth','$rootScope','po
 
   })
   //this checks our $scope on the mainController
-  console.log($scope);
+  // console.log($scope);
   //this looks to see if the user has been to the site before, and if so, if they are logged in on
   //their social environment (facebook in this case), it converts $scope.user using JSON.stringify
   //to provide information that our application will use for a given user.
-  console.log("Logged in: " + JSON.stringify($scope.user));
+  // console.log("Logged in: " + JSON.stringify($scope.user));
+
 
   posts.getUserData().then(function (user) {
   $scope.userName = user.first_name

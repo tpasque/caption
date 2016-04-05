@@ -63,8 +63,6 @@ router.post('/auth/facebook', function(req, res, next){
         if (response.statusCode !== 200) {
           return res.status(500).send({ message: profile.error.message });
         }
-        console.log("profile");
-        console.log(profile);
           var user = {}
           user.facebook_id = profile.id
           user.profile_image_url = 'https://graph.facebook.com/'+profile.id+'/picture?type=large'
@@ -77,8 +75,6 @@ router.post('/auth/facebook', function(req, res, next){
           user.total_points = 0;
           user.time = moment().calendar()
           var token = createToken(user)
-          console.log("USER");
-          console.log(user);
           Users().insert(user)
             .catch(function(error){
               console.log(error);
@@ -93,8 +89,6 @@ router.post('/auth/facebook', function(req, res, next){
 
 //Verify User Logged in: getting user information
 router.post('/user', function(req, res, next){
-  console.log("req.body in router.post /user route");
-  console.log(req.body);
   var token = req.body.token
   var user = verifyToken(token)
   Users().where('facebook_id', user.facebook_id).first().then(function(result){
@@ -102,9 +96,12 @@ router.post('/user', function(req, res, next){
   })
 
 })
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
+
+router.get('/posts', function (req, res, next) {
+  Posts().select('*').then(function(result) {
+      res.send(result)
+  })
+})
+
 
 module.exports = router;
