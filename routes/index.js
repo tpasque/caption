@@ -104,67 +104,45 @@ router.get('/posts', function (req, res, next) {
       // console.log(postsBrands);  We have access to postsBrands and result which should have all of our data.
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
       //[ { posts:[ { post:{},captions[{},{},{},{}]}]}];
-      var caption = {};
-      var captionsArray = [];
-      var post = {};
-      var postsObject = {};
+
       var postsArray = [];
-      var resultsObject = {};
-      var resultsArray = new Array();
-      // console.log("result array test look");
-      // console.log(result);
-
-
-      postsObject.post = post
-      captionsArray.push(caption)
-      postsObject.captions = captionsArray
-      postsArray.push(postsObject)
-      resultsObject.posts = postsArray
-      resultsArray.push(resultsObject)
-      // console.log("resultsArray");
-      // console.log(resultsArray);
-
       var postsObj = {};
+      var captionsArray = [];
       var func = function(){
         for (var i = 0; i < result.length; i++) {
           post = result[i].post_id
           caption = result[i].caption
-          if (postsObj[post]) {
-          var item =  postsObj[post]
-          item.post.caption.push(caption)
-        }else{
-          postsObj[post] = {
-            post: {
-              post_id: result[i].post_id,
-              post_campaign_url: result[i].campaign_photo_url,
-              caption: [{caption: result[i].caption}]
+          up_votes = result[i].up_votes
+            if (postsObj[post]) {
+            var item =  postsObj[post]
+            item.post.caption.push({
+              caption:caption,
+              up_votes:up_votes
+            })
+          } else{
+            postsObj[post] = {
+              post: {
+                post_id: result[i].post_id,
+                post_campaign_url: result[i].campaign_photo_url,
+                caption: [{
+                  caption: caption,
+                  caption_up_votes: up_votes
+                }]
+              }
             }
           }
-          postsObj[post].post.caption.push(result[i].caption)
         }
-
-
-
-        }
-        // postsObj[800].post.caption[0].split(',');
+        postsArray.push({posts:postsObj})
         console.log("postsObj OBJ");
         console.log(postsObj);
-        console.log(postsObj[800].post.caption);
+        // console.log(postsObj[801].post.caption);
+        console.log("%%%%%%POST ARRAY%%%%%%%");
+        console.log(postsArray);
 
 
 
       }
-
-      func(postsArray, result, post)
-
-
-        // console.log("postsArray $$$$$$");
-        // console.log(postsArray);
-
-
-
-      // console.log("post object");
-      // console.log(post);
+      func(result)
 
 
       var stuff = [{posts: [{post:{id:800, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/double-burger.jpg"},
@@ -179,18 +157,9 @@ router.get('/posts', function (req, res, next) {
       // console.log("RESULT");
       // console.log(result);
 
-
-
-      // console.log("Posts, Captions, Brands");
-      // console.log(result);
       res.send(stuff)
     })
   })
-  // Captions().join('posts', 'captions.post_id', 'posts.id').then(function (result) {
-  //   console.log("Captions");
-  //   console.log(result);
-  //   res.send(result)
-  // })
 })
 
 
