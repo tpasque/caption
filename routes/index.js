@@ -97,10 +97,100 @@ router.post('/user', function(req, res, next){
 
 })
 
+//route that gets all posts.  Nested query to get post with brand information and associated captions.
 router.get('/posts', function (req, res, next) {
-  Posts().select('*').then(function(result) {
-      res.send(result)
+  Posts().join('brands','posts.brand_id', 'brands.id').then(function (postsBrands) {
+    Posts().join('captions', 'posts.id', 'captions.post_id').then(function (result) {
+      // console.log(postsBrands);  We have access to postsBrands and result which should have all of our data.
+      // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
+      //[ { posts:[ { post:{},captions[{},{},{},{}]}]}];
+      var caption = {};
+      var captionsArray = [];
+      var post = {};
+      var postsObject = {};
+      var postsArray = [];
+      var resultsObject = {};
+      var resultsArray = new Array();
+      // console.log("result array test look");
+      // console.log(result);
+
+
+      postsObject.post = post
+      captionsArray.push(caption)
+      postsObject.captions = captionsArray
+      postsArray.push(postsObject)
+      resultsObject.posts = postsArray
+      resultsArray.push(resultsObject)
+      // console.log("resultsArray");
+      // console.log(resultsArray);
+
+      var postsObj = {};
+      var func = function(){
+        for (var i = 0; i < result.length; i++) {
+          post = result[i].post_id
+          caption = result[i].caption
+          if (postsObj[post]) {
+          var item =  postsObj[post]
+          item.post.caption.push(caption)
+        }else{
+          postsObj[post] = {
+            post: {
+              post_id: result[i].post_id,
+              post_campaign_url: result[i].campaign_photo_url,
+              caption: [{caption: result[i].caption}]
+            }
+          }
+          postsObj[post].post.caption.push(result[i].caption)
+        }
+
+
+
+        }
+        // postsObj[800].post.caption[0].split(',');
+        console.log("postsObj OBJ");
+        console.log(postsObj);
+        console.log(postsObj[800].post.caption);
+
+
+
+      }
+
+      func(postsArray, result, post)
+
+
+        // console.log("postsArray $$$$$$");
+        // console.log(postsArray);
+
+
+
+      // console.log("post object");
+      // console.log(post);
+
+
+      var stuff = [{posts: [{post:{id:800, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/double-burger.jpg"},
+      captions:[{id:1, post_id:800, caption: "hello"}, {id:2, post_id:800, caption: "hello again"},{id:3, post_id:800, caption: "hello THIRD again"} ]},
+      {post:{id:801, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/milkshakes.jpg"},
+      captions:[{id:3, post_id:801, caption: "hello there"}, {id:4, post_id:801, caption: "hello there again"}]}
+      ]}];
+
+      // console.log("Stuff");
+      // console.log(stuff);
+
+      // console.log("RESULT");
+      // console.log(result);
+
+
+
+      // console.log("Posts, Captions, Brands");
+      // console.log(result);
+      res.send(stuff)
+    })
   })
+  // Captions().join('posts', 'captions.post_id', 'posts.id').then(function (result) {
+  //   console.log("Captions");
+  //   console.log(result);
+  //   res.send(result)
+  // })
 })
 
 

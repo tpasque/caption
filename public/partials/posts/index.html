@@ -1,6 +1,10 @@
 <h2>you are on the "posts" index page</h2>
 <div ng-repeat="post in posts">
-  <p>{{post.brand_id}}</p>
-  <img src="{{post.campaign_photo_url}}" alt="photo not found" />
+  <p>{{post.post.id}}</p>
+  <img src="{{post.post.campaign_photo_url}}" alt="photo not found" />
+  <div ng-repeat="caption in post.captions">
+    <p>{{caption.caption}}</p>
+  </div>
+
 
 </div>

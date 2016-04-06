@@ -16,8 +16,10 @@ this.isLoggedIn = function () {
 this.getAllPosts = function () {
   return $http.get('posts').then(function (response) {
     console.log("this is the response in getAllPosts in the main_service: ");
-    console.log(response.data);
-    return response.data
+    // console.log(response.data);
+    // return response.data
+    console.log(response);
+    return response
   })
 
 }

@@ -22,8 +22,8 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
 
   posts.getAllPosts().then(function (result) {
     console.log("this is the result for getAllPosts in the postController");
-    console.log(result);
-    $scope.posts = result
+    console.log(result.data[0].posts);
+    $scope.posts = result.data[0].posts;
     console.log("$scope.posts");
     console.log($scope.posts);
   })
