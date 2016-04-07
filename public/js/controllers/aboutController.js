@@ -1,4 +1,4 @@
-app.controller("postController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', function ($scope, $http, $auth, $location, $route, posts) {
+app.controller("aboutController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', function ($scope, $http, $auth, $location, $route, posts) {
   posts.getUserData().then(function (user) {
     $scope.userAdmin = user.is_admin
     $scope.userAgency = user.is_agency
@@ -26,15 +26,6 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
     $scope.posts = result.data[0].posts;
   })
 
+  
 
-//   posts.allUser().then(function(result){
-//     $scope.userStats = result;
-//
-//   })
-//
-//
-// posts.showPost().then(function(result){
-//   $scope.showPost = result;
-
-// })
 }])

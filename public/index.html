@@ -13,11 +13,16 @@
       <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div id="navbar" class="navbar-collapse collapse" ng-controller="mainController">
+    <div id="main">
+      <div class="indexTitleContainer">
+        <!-- <p>Hello, {{userObj.name}}</p> -->
+        <h1 class="indexTitle">piper</h1>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" ng-controller="mainController">
         <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
           <li ng-show="!user.session"><a href="/#/">Home</a></li>
           <li ng-show="user.session"><a href="/#/posts">Feed</a></li>
-          <!-- <li ng-click="setNavTab()"><a ng-style="{'color': color.about}" href="/#/about">About</a></li> -->
+          <li><a href="/#/about">About</a></li>
           <!-- <li><a href="/#/contact">Contact</a></li> -->
           <!-- <li ng-show="!user.session"><a href="/#/feed" ng-click="authenticate('facebook')">Sign In</a></li> -->
           <!-- <a href="/#/login">Sign In</a></li> -->
@@ -25,10 +30,11 @@
           <!-- <li ng-show="user.session"><a href="/#/profile">Profile</a></li> -->
           <li><a href="/#/admin">Admin</a></li>
         </ul>
-        <!-- <h4 class='userName'>Hi, <a class='headName' href="/#/profile">{{userName}}</a></h4> -->
       </div>
-      <h1 class="indexTitle">piper</h1>
-    <div ng-view></div>
+
+      <div ng-view></div>
+      <!-- <footer>hello</footer> -->
+    </div>
 
     <!-- CDNs -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>

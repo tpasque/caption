@@ -1,4 +1,6 @@
-app.controller("postController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', function ($scope, $http, $auth, $location, $route, posts) {
+//I was having trouble getting this working with profile, so I am using "postController" with my profile route in app.js
+app.controller("profileController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', function ($scope, $http, $auth, $location, $route, posts) {
+  console.log("you are on the profile controller");
   posts.getUserData().then(function (user) {
     $scope.userAdmin = user.is_admin
     $scope.userAgency = user.is_agency
@@ -7,8 +9,6 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
     $scope.userObj = user
     console.log(user);
   })
-
-
 
   //checks to see if logged in user has is_admin set to true or false, the sets isAdmin to that value
   $scope.userData;
@@ -26,15 +26,4 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
     $scope.posts = result.data[0].posts;
   })
 
-
-//   posts.allUser().then(function(result){
-//     $scope.userStats = result;
-//
-//   })
-//
-//
-// posts.showPost().then(function(result){
-//   $scope.showPost = result;
-
-// })
-}])
+}]);

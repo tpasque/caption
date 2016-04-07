@@ -101,7 +101,7 @@ router.post('/user', function(req, res, next){
 router.get('/posts', function (req, res, next) {
     Posts().join('captions', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function (result) {
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
-      //[ { posts:[ { post:{},captions[{},{},{},{}]}]}];
+      //[ { posts:[ { post:{},brands:[],captions:[{},{},{},{}]}]}];
       var dataArray = []
       var postsArray = [];
       var postsObj = {};
@@ -146,9 +146,6 @@ router.get('/posts', function (req, res, next) {
         dataArray.push({posts: postsArray})
       }
       buildData(result)
-      // console.log(postsArray[0].posts[0]);
-      console.log("this is the new dataArray");
-      console.log(dataArray[0].posts[0].post.caption);
 
       // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like.
 

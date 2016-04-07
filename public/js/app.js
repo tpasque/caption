@@ -27,5 +27,15 @@ app.config(function ($routeProvider, $authProvider) {
       templateUrl: 'partials/posts/index.html',
       controller: 'postController'
     })
+    //I used "postController" here bc I couldn't get "profileController" to work for some reason...
+    //Not sure if there is a problem with repeating controller usage.
+    .when('/profile',{
+      templateUrl: 'partials/profile/show.html',
+      controller: 'postController'
+    })
+    .when('/about', {
+      templateUrl: 'partials/about.html',
+      controller: 'mainController'
+    })
 
 })
