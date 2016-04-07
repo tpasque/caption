@@ -97,18 +97,16 @@ router.post('/user', function(req, res, next){
 
 })
 
-//route that gets all posts.  Nested query to get post with brand information and associated captions.
+//route that gets all posts.  Chained Join query to get post with brand information and associated captions.
 router.get('/posts', function (req, res, next) {
-  Posts().join('brands','posts.brand_id', 'brands.id').then(function (postsBrands) {
-    Posts().join('captions', 'posts.id', 'captions.post_id').then(function (result) {
-      // console.log(postsBrands);  We have access to postsBrands and result which should have all of our data.
+    Posts().join('captions', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function (result) {
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
       //[ { posts:[ { post:{},captions[{},{},{},{}]}]}];
-
+      var dataArray = []
       var postsArray = [];
       var postsObj = {};
       var captionsArray = [];
-      var func = function(){
+      var buildData = function(){
         for (var i = 0; i < result.length; i++) {
           post = result[i].post_id
           caption = result[i].caption
@@ -124,41 +122,43 @@ router.get('/posts', function (req, res, next) {
               post: {
                 post_id: result[i].post_id,
                 post_campaign_url: result[i].campaign_photo_url,
+                brand: {
+                  brand_name: result[i].brand_name,
+                  brand_image_url: result[i].brand_image_url
+                },
                 caption: [{
                   caption: caption,
-                  caption_up_votes: up_votes
+                  up_votes: up_votes
                 }]
               }
             }
           }
         }
-        postsArray.push({posts:postsObj})
-        console.log("postsObj OBJ");
-        console.log(postsObj);
-        // console.log(postsObj[801].post.caption);
-        console.log("%%%%%%POST ARRAY%%%%%%%");
-        console.log(postsArray);
-
-
-
+        //for in loop that takes postsObj which is an object with multiple key:value pairs
+        //the key:value pairs are the post_id value as the key and post object as the pair.
+        //this for in loop extracts all of the pairs and puts them into postsArray so we can
+        //push that array into an object that is inside dataArray in order to have an array
+        //of objects that we can use on the Angular side.
+        for (var key in postsObj){
+          var value = postsObj[key];
+          postsArray.push(value)
+        }
+        dataArray.push({posts: postsArray})
       }
-      func(result)
+      buildData(result)
+      // console.log(postsArray[0].posts[0]);
+      console.log("this is the new dataArray");
+      console.log(dataArray[0].posts[0].post.caption);
 
+      // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like.
 
-      var stuff = [{posts: [{post:{id:800, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/double-burger.jpg"},
-      captions:[{id:1, post_id:800, caption: "hello"}, {id:2, post_id:800, caption: "hello again"},{id:3, post_id:800, caption: "hello THIRD again"} ]},
-      {post:{id:801, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/milkshakes.jpg"},
-      captions:[{id:3, post_id:801, caption: "hello there"}, {id:4, post_id:801, caption: "hello there again"}]}
-      ]}];
+      // var stuff = [{posts: [{post:{id:800, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/double-burger.jpg"},
+      // captions:[{id:1, post_id:800, caption: "hello"}, {id:2, post_id:800, caption: "hello again"},{id:3, post_id:800, caption: "hello THIRD again"} ]},
+      // {post:{id:801, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/milkshakes.jpg"},
+      // captions:[{id:3, post_id:801, caption: "hello there"}, {id:4, post_id:801, caption: "hello there again"}]}
+      // ]}];
 
-      // console.log("Stuff");
-      // console.log(stuff);
-
-      // console.log("RESULT");
-      // console.log(result);
-
-      res.send(stuff)
-    })
+      res.send(dataArray)
   })
 })
 
