@@ -37,5 +37,9 @@ app.config(function ($routeProvider, $authProvider) {
       templateUrl: 'partials/about.html',
       controller: 'mainController'
     })
+    .when('/admin', {
+      templateUrl: 'partials/admin/index.html',
+      controller: 'postController'
+    })
 
 })
