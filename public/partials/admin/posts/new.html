@@ -2,6 +2,30 @@
 <div class="postsNewFormContainer">
   <h1>add a post</h1>
   <form method="POST" action="/post/new" enctype="multipart/form-data">
+    <h2>Add brand</h2>
+    <!-- This will be a dropdown eventually that pulls from "Brands" table. It will need to grab the brand and insert brand id in to the posts table-->
+      <input type="text" name="post_brand_name" ng-model="post_brand_name" placeholder="insert brand">
+    <h2>Add Caption Photo</h2>
+      <input type="file" name="file">
+    <h2>Add Captions</h2>
+      <label for="post_caption_1">Caption 1:</label>
+        <input type="text" name="post_caption_1" ng-model="post_caption_1" placeholder="insert caption 1"><br>
+      <label for="post_caption_2">Caption 2:</label>
+        <input type="text" name="post_caption_2" ng-model="post_caption_2" placeholder="insert caption 2"><br>
+      <label for="post_caption_3">Caption 3:</label>
+        <input type="text" name="post_caption_3" ng-model="post_caption_3" placeholder="insert caption 3"><br>
+      <label for="post_caption_4">Caption 4:</label>
+        <input type="text" name="post_caption_4" ng-model="post_caption_4" placeholder="insert caption 4"><br>
+    <h2>Points for Top Caption</h2>
+      <input type="text" name="post_points_for_win" ng-model="post_points_for_win" placeholder="insert points for top caption">
+    <h2>Money for Top Caption</h2>
+      <input type="text" name="post_money_for_win" ng-model="post_money_for_win" placeholder="insert money prize for top caption">
+    <h2>Post Start date</h2>
+      <input type="date" name="post_start_date" ng-model="post_start_date">
+    <h2>Post End Date</h2>
+      <input type="date" name="post_end_date" ng-model="post_end_date"><br>
+    <input type = "hidden" name = "user_facebook_id" value="{{user_facebook_id}}"></input>
+    <button id="newPostSubmitButton" type="submit" class='btn btn-primary btn-lg'>Add Post</button>
 
   </form>
 
