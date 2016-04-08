@@ -1,4 +1,3 @@
-//I was having trouble getting this working with profile, so I am using "postController" with my profile route in app.js
 app.controller("profileController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', function ($scope, $http, $auth, $location, $route, posts) {
   console.log("you are on the profile controller");
   posts.getUserData().then(function (user) {

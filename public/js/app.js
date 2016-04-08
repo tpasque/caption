@@ -35,27 +35,35 @@ app.config(function ($routeProvider, $authProvider) {
     //Not sure if there is a problem with repeating controller usage.
     .when('/profile',{
       templateUrl: 'partials/profile/show.html',
-      controller: 'postController'
+      controller: 'profileController'
     })
     .when('/admin', {
       templateUrl: 'partials/admin/index.html',
-      controller: 'postController'
+      controller: 'adminController'
     })
     .when('/admin/posts/new', {
       templateUrl: 'partials/admin/posts/new.html',
-      controller: 'postController'
+      controller: 'adminController'
     })
     .when('/admin/brands/new', {
       templateUrl: 'partials/admin/brands/new.html',
-      controller: 'postController'
+      controller: 'adminController'
     })
     .when('/users', {
       templateUrl: 'partials/users/index.html',
-      controller: 'postController'
+      controller: 'adminController'
     })
     .when('/admin/brands', {
       templateUrl: 'partials/admin/brands/index.html',
-      controller: 'postController'
+      controller: 'adminController'
+    })
+    .when('/admin/posts', {
+      templateUrl: 'partials/admin/posts/index.html',
+      controller: 'adminController'
+    })
+    .when('/payments', {
+      templateUrl: 'partials/admin/payments/index.html',
+      controller: 'paymentController'
     })
 
 
