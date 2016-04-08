@@ -1,0 +1,84 @@
+.showPageProfileInfoContainer{
+  width:40%;
+  display:block;
+  position: relative;
+  top:7vh;
+  left: 10vw;
+  float:left;
+}
+
+.showPageProfileImage{
+  border-radius:50%;
+  position: relative;
+  float: left;
+}
+
+.showPageUserName{
+  color: white;
+  font-size: 3.5em;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  text-decoration: underline;
+}
+
+.showPageRank{
+  color: white;
+  font-size: 1.7em;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  position: relative;
+  left: 10px;
+}
+
+.showPageCaptionAmount{
+  color: white;
+  font-size: 1.7em;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  position: relative;
+  left: 10px;
+}
+
+.showPageMoneyEarned{
+  color: white;
+  font-size: 1.7em;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  position: relative;
+  left: 10px;
+}
+
+.showPageTopPostsTitle{
+  color: white;
+  font-size: 2.0em;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  position: relative;
+  left: 20px;
+}
+
+.showPagePepperContainer{
+  width:40%;
+  /*height: 30vh;*/
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  float:right;
+  position: relative;
+  top:7vh;
+  right:5vw;
+}
+
+.showPagePepperContainer img{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showPagePepperContainer p{
+  color: white;
+  font-size: 1.7em;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  text-align: center;
+}

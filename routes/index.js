@@ -101,7 +101,7 @@ router.post('/user', function(req, res, next){
 router.get('/posts', function (req, res, next) {
     Posts().join('captions', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function (result) {
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
-      //[ { posts:[ { post:{},brands:[],captions:[{},{},{},{}]}]}];
+      //[ { posts:[ { post:{post:{},brands:[],captions:[{},{},{},{}]}}]}];
       var dataArray = []
       var postsArray = [];
       var postsObj = {};

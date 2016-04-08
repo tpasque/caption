@@ -1,0 +1,62 @@
+.aboutInfoContainer{
+  height:30vh;
+  width: 70%;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 5vh;
+}
+
+.aboutInfoContainer h2{
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  margin-bottom: 60px;
+}
+
+.aboutInfoContainer p{
+  color: white;
+  font-size: 2.0em;
+  text-align: center;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+}
+
+.aboutInfoContainer h3{
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
+  font-weight:100;
+  margin-top: 8vh;
+}
+
+.aboutPageFacebookSignUp{
+  position: relative;
+  z-index: 1;
+}
+
+.pepperPicturesContainer{
+  height:30vh;
+  width: 100%;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top:15vh;
+}
+
+.pepperPicturesContainer img{
+  height:150px;
+  width: 150px;
+  padding: 20px;
+  position: relative;
+  float:left;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  left: 5vw;
+}
