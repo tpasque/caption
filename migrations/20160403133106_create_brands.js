@@ -4,7 +4,8 @@ exports.up = function(knex, Promise) {
    t.increments();
    t.string('facebook_id');
    t.string('brand_name');
-   t.string('brand_image_url');
+   t.text('brand_image_url');
+   t.text('public_id');
    t.timestamps();
    t.string('time');
  })

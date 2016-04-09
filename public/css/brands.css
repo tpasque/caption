@@ -1,0 +1,48 @@
+.brandAddFormContainer{
+  height:auto;
+  width: 70%;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top:7vh;
+}
+
+.brandAddFormContainer h1{
+  text-align: center;
+  text-decoration: underline;
+  position: relative;
+  top: 0.5vh;
+  color: #532171;
+}
+
+.brandAddFormContainer h2{
+  text-align: center;
+  color: #C7494C;
+}
+
+.brandAddFormContainer label{
+  display: block;
+  text-align: center;
+  line-height: 150%;
+  font-size: .85em;
+  color: #532171;
+}
+
+.brandAddFormContainer input{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+}
+
+#newBrandSubmitButton{
+  margin-top: 20px;
+  color:white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

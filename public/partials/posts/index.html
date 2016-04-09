@@ -4,7 +4,7 @@
   <h2 class="userGreeting"><a href="/#/profile">Hello, {{userObj.name}}</a></h2>
 </div>
 <div class="allPostContainer">
-  <div class="indPostContainer" ng-repeat="post in posts">
+  <div class="indPostContainer" ng-repeat="post in posts | orderBy: 'post.post_id' : 'reverse'">
     <div class="brandInfoContainer">
       <img class="brandImage" src="{{post.post.brand.brand_image_url}}" alt="no picture found">
       <p class="brandName">{{post.post.brand.brand_name}}</p>
@@ -17,6 +17,9 @@
       <div class="captionUpVoteContainer">
         <p class="captionUpVote">{{caption.up_votes}}</p>
       </div>
+    </div>
+    <div class="addCaptionContainer">
+      <p class="addCaptionContainerText"><a href="/#/posts/{{post.post.post_id}}">Add Your Caption</a></p>
     </div>
 
 

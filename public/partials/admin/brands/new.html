@@ -1,2 +1,11 @@
-<h1 style="color:white">you are on the new page for adding brands</h1>
-<h1 style="color:white">you are on the new page for adding brands</h1>
+<div class="brandAddFormContainer">
+  <form method="POST" class="brandAddForm" action="/brand/new" enctype="multipart/form-data">
+    <h1>add brand</h1>
+    <h2>Brand Name</h2>
+      <input type="text" placeholder="brand name" name="brand_name" ng-model="brand_name">
+    <h2>Brand Logo Picture</h2>
+      <input type="file" name="file">
+    <input type = "hidden" name = "user_facebook_id" value="{{user_facebook_id}}"></input>
+    <button id="newBrandSubmitButton" type="submit" class='btn btn-primary btn-lg'>Add Brand</button>
+  </form>
+</div>

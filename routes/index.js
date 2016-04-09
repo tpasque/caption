@@ -213,4 +213,24 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
   })
 })
 
+//post route to add new brand - admin
+router.post('/brand/new', upload.single('file'), function (req, res, next) {
+  console.log("req.body");
+  console.log(req.body);
+  cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
+    console.log("CLOUDINARY");
+    console.log(cloudinary_result);
+    var brand = {}
+    brand.facebook_id = req.body.user_facebook_id
+    brand.brand_name = req.body.brand_name
+    brand.brand_image_url = cloudinary_result.secure_url
+    brand.public_id = cloudinary_result.public_id
+    brand.time = moment().calendar()
+    Brands().insert(brand).then(function (brand_result) {
+      //change this route to see all brands once that is created
+      res.redirect('/#/admin')
+    })
+  })
+
+})
 module.exports = router;
