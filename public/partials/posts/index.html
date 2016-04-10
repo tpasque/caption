@@ -12,17 +12,15 @@
     <div class="postContainer">
       <img class="postImage" src="{{post.post.post_campaign_url}}" alt="photo not found" />
     </div>
-    <div class="captionContainer" ng-repeat="caption in post.post.caption">
-      <p class="captionText">{{caption.caption}}</p>
+    <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption.id'">
+      <p class="captionText">{{caption.caption}}, x{{caption.id}}</p>
       <div class="captionUpVoteContainer">
         <p class="captionUpVote">{{caption.up_votes}}</p>
       </div>
     </div>
     <div class="addCaptionContainer">
-      <p class="addCaptionContainerText"><a href="/#/posts/{{post.post.post_id}}">Add Your Caption</a></p>
+      <p class="addCaptionText"><a href="/#/posts/{{post.post.post_id}}">Add Your Caption</a></p>
     </div>
-
-
   </div>
 
 </div>

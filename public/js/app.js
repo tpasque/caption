@@ -33,7 +33,7 @@ app.config(function ($routeProvider, $authProvider) {
     })
     .when('/posts/:id', {
       templateUrl: 'partials/posts/show.html',
-      controller: 'postController'
+      controller: 'postIdController'
     })
     .when('/profile',{
       templateUrl: 'partials/profile/show.html',
@@ -53,7 +53,7 @@ app.config(function ($routeProvider, $authProvider) {
     })
     .when('/users', {
       templateUrl: 'partials/users/index.html',
-      controller: 'adminController'
+      controller: 'userController'
     })
     .when('/admin/brands', {
       templateUrl: 'partials/admin/brands/index.html',
@@ -67,6 +67,7 @@ app.config(function ($routeProvider, $authProvider) {
       templateUrl: 'partials/admin/payments/index.html',
       controller: 'paymentController'
     })
+
 
 
 })

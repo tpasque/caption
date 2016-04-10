@@ -1,4 +1,4 @@
-app.controller("postController", ['$scope', '$http', '$auth', '$location', '$route', '$routeParams', 'posts', function ($scope, $http, $auth, $location, $route, $routeParams, posts) {
+app.controller("postIdController", ['$scope', '$http', '$auth', '$location', '$route', '$routeParams', 'posts', function ($scope, $http, $auth, $location, $route, $routeParams, posts) {
 
   posts.getUserData().then(function (user) {
     $scope.userAdmin = user.is_admin
@@ -20,10 +20,13 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
     }
   })
 
-  //gets all posts for post index page
-  posts.getAllPosts().then(function (result) {
-    $scope.posts = result.data[0].posts;
-    console.log($scope.posts);
+  var post_id = $routeParams.id
+
+
+  posts.getPostById(post_id).then(function (response) {
+    $scope.post = response[0].post.post
+    $scope.brand = response[0].post.brands[0]
+    $scope.captions = response[0].post.captions
   })
 
 }])

@@ -1,0 +1,30 @@
+
+<div class="showPagePostContainer">
+  <div class="showPageIndPostContainer">
+    <div class="showPageBrandInfoContainer">
+      <img class="showPageBrandImage" src="{{brand.brand_image_url}}" alt="no image found">
+      <h2 class="showPageBrandName">{{brand.brand_name}}</h2>
+    </div>
+    <div class="showPagePostInfoContainer">
+      <img class="showPagePostImage" src="{{post.campaign_photo_url}}" alt="no image found">
+    </div>
+    <div class="showPageAddNewCaptionContainer">
+      <form class="showPageNewCaptionForm" method="POST" action="/caption/new">
+        <label class="showPageAddNewCaptionLabel" for="new_caption">Add Your Caption:</label>
+        <input class="showPageNewCaptionTextBox"type="text" name="new_caption" ng-model="new_caption">
+        <input type = "hidden" name = "user_facebook_id" value="{{user}}"></input>
+        <input type = "hidden" name = "post_id" value="{{post.id}}"></input>
+        <button id="showPageNewCaptionSubmitButton" type="submit" class='btn btn-primary btn-lg'>Add Caption</button>
+      </form>
+    </div>
+    <div class="showPageCaptionsContainer">
+      <div ng-repeat="caption in captions">
+        <p class="showPageCaptionText">{{caption.caption}}</p>
+        <p class="showPageCaptionUpVote">{{caption.up_votes}}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

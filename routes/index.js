@@ -87,82 +87,12 @@ router.post('/auth/facebook', function(req, res, next){
     });
 })
 
-//Verify User Logged in: getting user information
-router.post('/user', function(req, res, next){
-  var token = req.body.token
-  var user = verifyToken(token)
-  Users().where('facebook_id', user.facebook_id).first().then(function(result){
-    res.send(result)
-  })
-
-})
-
-//route that gets all posts.  Chained Join query to get post with brand information and associated captions.
-router.get('/posts', function (req, res, next) {
-    Posts().join('captions', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function (result) {
-      // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
-      //[ { posts:[ { post:{post:{},brands:[],captions:[{},{},{},{}]}}]}];
-      var dataArray = []
-      var postsArray = [];
-      var postsObj = {};
-      var captionsArray = [];
-      var buildData = function(){
-        for (var i = 0; i < result.length; i++) {
-          post = result[i].post_id
-          caption = result[i].caption
-          up_votes = result[i].up_votes
-            if (postsObj[post]) {
-            var item =  postsObj[post]
-            item.post.caption.push({
-              caption:caption,
-              up_votes:up_votes
-            })
-          } else{
-            postsObj[post] = {
-              post: {
-                post_id: result[i].post_id,
-                post_campaign_url: result[i].campaign_photo_url,
-                brand: {
-                  brand_name: result[i].brand_name,
-                  brand_image_url: result[i].brand_image_url
-                },
-                caption: [{
-                  caption: caption,
-                  up_votes: up_votes
-                }]
-              }
-            }
-          }
-        }
-        //for in loop that takes postsObj which is an object with multiple key:value pairs
-        //the key:value pairs are the post_id value as the key and post object as the pair.
-        //this for in loop extracts all of the pairs and puts them into postsArray so we can
-        //push that array into an object that is inside dataArray in order to have an array
-        //of objects that we can use on the Angular side.
-        for (var key in postsObj){
-          var value = postsObj[key];
-          postsArray.push(value)
-        }
-        dataArray.push({posts: postsArray})
-      }
-      buildData(result)
-
-      // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like.
-
-      // var stuff = [{posts: [{post:{id:800, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/double-burger.jpg"},
-      // captions:[{id:1, post_id:800, caption: "hello"}, {id:2, post_id:800, caption: "hello again"},{id:3, post_id:800, caption: "hello THIRD again"} ]},
-      // {post:{id:801, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/milkshakes.jpg"},
-      // captions:[{id:3, post_id:801, caption: "hello there"}, {id:4, post_id:801, caption: "hello there again"}]}
-      // ]}];
-
-      res.send(dataArray)
-  })
-})
-
 //post route for adding a new post from the admin
 router.post('/post/new', upload.single('file'), function (req, res, next) {
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
     Brands().select('id').where('brand_name', req.body.post_brand_name).then(function (brand_id) {
+      console.log("brand_id result");
+      console.log(brand_id);
       var post_brand_id = brand_id[0].id
       var post = {}
       post.facebook_id = req.body.user_facebook_id
@@ -213,13 +143,111 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
   })
 })
 
+//post route to get post by ID for individual post page
+router.get('/post/:id', function(req, res, next){
+  Posts().where('id', req.params.id).first().then(function(post_result){
+    //this is what we are building
+    //postArray = [ { post:{post:{},brands:[],captions:[{},{},{},{}]}}];
+    var postArray = [];
+    var postObj = {};
+    Captions().where('post_id', req.params.id).then(function (captions_result) {
+      Brands().where('id', post_result.brand_id).then(function (brand_result) {
+        postObj.post = {
+          post:post_result,
+          captions:captions_result,
+          brands:brand_result
+        }
+        postArray.push(postObj)
+        res.send(postArray);
+      })
+    })
+  })
+})
+
+router.post('/caption/new', function (req, res, next) {
+  var caption = {};
+  caption.facebook_id = req.body.user_facebook_id
+  caption.post_id = req.body.post_id
+  caption.caption = req.body.new_caption
+  caption.up_votes = 0
+  caption.time = moment().calendar()
+  Captions().insert(caption).then(function (response) {
+    res.redirect('/#/posts')
+  })
+})
+
+
+
+//Verify User Logged in: getting user information
+router.post('/user', function(req, res, next){
+  var token = req.body.token
+  var user = verifyToken(token)
+  Users().where('facebook_id', user.facebook_id).first().then(function(result){
+    res.send(result)
+  })
+
+})
+
+//route that gets all posts.  Chained Join query to get post with brand information and associated captions.
+router.get('/posts', function (req, res, next) {
+    Posts().join('captions', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function (result) {
+      // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
+      //[ { posts:[ { post:{post:{},brands:[],captions:[{},{},{},{}]}}]}];
+      var dataArray = []
+      var postsArray = [];
+      var postsObj = {};
+      var captionsArray = [];
+      var buildData = function(){
+        for (var i = 0; i < result.length; i++) {
+          post = result[i].post_id
+          caption = result[i].caption
+          up_votes = result[i].up_votes
+            if (postsObj[post]) {
+            var item =  postsObj[post]
+            item.post.caption.push({
+              caption:caption,
+              up_votes:up_votes
+              // id:id
+            })
+          } else{
+            postsObj[post] = {
+              post: {
+                post_id: result[i].post_id,
+                post_campaign_url: result[i].campaign_photo_url,
+                brand: {
+                  brand_name: result[i].brand_name,
+                  brand_image_url: result[i].brand_image_url
+                },
+                caption: [{
+                  caption: caption,
+                  up_votes: up_votes
+                  // id:id
+                }]
+              }
+            }
+          }
+        }
+        //for in loop that takes postsObj which is an object with multiple key:value pairs
+        //the key:value pairs are the post_id value as the key and post object as the pair.
+        //this for in loop extracts all of the pairs and puts them into postsArray so we can
+        //push that array into an object that is inside dataArray in order to have an array
+        //of objects that we can use on the Angular side.
+        for (var key in postsObj){
+          var value = postsObj[key];
+          postsArray.push(value)
+        }
+        dataArray.push({posts: postsArray})
+      }
+      buildData(result)
+      // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like, it is commented out at the bottom of the file as an example if needed.
+      res.send(dataArray)
+  })
+})
+
+
 //post route to add new brand - admin
 router.post('/brand/new', upload.single('file'), function (req, res, next) {
-  console.log("req.body");
-  console.log(req.body);
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
-    console.log("CLOUDINARY");
-    console.log(cloudinary_result);
     var brand = {}
     brand.facebook_id = req.body.user_facebook_id
     brand.brand_name = req.body.brand_name
@@ -232,5 +260,14 @@ router.post('/brand/new', upload.single('file'), function (req, res, next) {
     })
   })
 
+
+
 })
 module.exports = router;
+
+//var stuff used as a hard coded data set in the "/posts" route while building query.
+  // var stuff = [{posts: [{post:{id:800, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/double-burger.jpg"},
+  // captions:[{id:1, post_id:800, caption: "hello"}, {id:2, post_id:800, caption: "hello again"},{id:3, post_id:800, caption: "hello THIRD again"} ]},
+  // {post:{id:801, facebook_id:10103893635535073, brand_id:200, campaign_photo_url: "http://smashburger.com/wp-content/themes/smashburger_v3/img/milkshakes.jpg"},
+  // captions:[{id:3, post_id:801, caption: "hello there"}, {id:4, post_id:801, caption: "hello there again"}]}
+  // ]}];
