@@ -11,9 +11,14 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
   //checks to see if logged in user has is_admin set to true or false, the sets isAdmin to that value
   $scope.userData;
   $scope.isAdmin;
+  // console.log($scope.isAdmin);
   posts.getUserData().then(function(payload){
+    console.log("payload");
+    console.log(payload);
     $scope.userData = payload;
-    if ($scope.userData['is_admin'] === true) {
+    console.log("scope.userData");
+    console.log($scope.userData);
+    if ($scope.userData.is_admin === true) {
     $scope.isAdmin = true;
     } else {
     $scope.isAdmin = false;
@@ -23,7 +28,10 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
   //gets all posts for post index page
   posts.getAllPosts().then(function (result) {
     $scope.posts = result.data[0].posts;
-    console.log($scope.posts);
   })
+
+  // $scope.submitVote = function () {
+  //
+  // }
 
 }])

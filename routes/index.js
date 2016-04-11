@@ -190,7 +190,7 @@ router.post('/user', function(req, res, next){
 
 //route that gets all posts.  Chained Join query to get post with brand information and associated captions.
 router.get('/posts', function (req, res, next) {
-    Posts().join('captions', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function (result) {
+  Captions().join('posts', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function(result){
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
       //[ { posts:[ { post:{post:{},brands:[],captions:[{},{},{},{}]}}]}];
       var dataArray = []
@@ -202,12 +202,13 @@ router.get('/posts', function (req, res, next) {
           post = result[i].post_id
           caption = result[i].caption
           up_votes = result[i].up_votes
-            if (postsObj[post]) {
+          caption_id = result[i].caption_id
+          if (postsObj[post]) {
             var item =  postsObj[post]
             item.post.caption.push({
               caption:caption,
-              up_votes:up_votes
-              // id:id
+              up_votes:up_votes,
+              caption_id:caption_id
             })
           } else{
             postsObj[post] = {
@@ -220,8 +221,8 @@ router.get('/posts', function (req, res, next) {
                 },
                 caption: [{
                   caption: caption,
-                  up_votes: up_votes
-                  // id:id
+                  up_votes: up_votes,
+                  caption_id:caption_id
                 }]
               }
             }
@@ -237,13 +238,15 @@ router.get('/posts', function (req, res, next) {
           postsArray.push(value)
         }
         dataArray.push({posts: postsArray})
+        console.log("dataArray");
+        console.log(dataArray[0].posts[0].post.caption);
       }
       buildData(result)
       // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like, it is commented out at the bottom of the file as an example if needed.
       res.send(dataArray)
+
   })
 })
-
 
 //post route to add new brand - admin
 router.post('/brand/new', upload.single('file'), function (req, res, next) {

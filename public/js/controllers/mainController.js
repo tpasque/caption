@@ -67,4 +67,5 @@ app.controller('mainController', ['$scope', '$location','$auth','$rootScope','po
   console.log("username is: " + $scope.userName);
 })
 
+
 }])

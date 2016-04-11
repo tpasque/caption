@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
  return knex.schema.createTable('captions', function(t){
-   t.increments();
+   t.increments('caption_id');
    t.string('facebook_id');
    t.integer('post_id');
    t.string('caption');
