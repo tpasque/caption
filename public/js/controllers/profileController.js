@@ -6,6 +6,7 @@ app.controller("profileController", ['$scope', '$http', '$auth', '$location', '$
     $scope.piper = user.is_piper
     $scope.user = user.facebook_id
     $scope.userObj = user
+    $scope.captionAmount = user.captions.length
     console.log(user);
   })
 
