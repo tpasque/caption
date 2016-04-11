@@ -15,7 +15,12 @@
     <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption.caption_id'">
       <p class="captionText">{{caption.caption}}, x</p>
       <div class="captionUpVoteContainer">
-        <p class="captionUpVote">{{caption.up_votes}} <a ng-click="submitPostVote({{caption.caption_id}})">&#10004</a></p>
+        <form class="captionUpVoteForm" action="/vote" method="POST">
+          <p class="captionUpVote">{{caption.up_votes}}</p>
+          <!-- <a ng-model="{{caption.caption_id}}">&#10004</a> -->
+          <input type = "hidden" name = "caption_id" value="{{caption.caption_id}}"></input>
+            <button id="indexPageVoteSubmitButton" type="submit" class='btn btn-primary btn-sm'>Vote &#10004</button>
+        </form>
       </div>
     </div>
     <div class="addCaptionContainer">

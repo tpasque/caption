@@ -13,11 +13,7 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
   $scope.isAdmin;
   // console.log($scope.isAdmin);
   posts.getUserData().then(function(payload){
-    console.log("payload");
-    console.log(payload);
     $scope.userData = payload;
-    console.log("scope.userData");
-    console.log($scope.userData);
     if ($scope.userData.is_admin === true) {
     $scope.isAdmin = true;
     } else {
@@ -30,8 +26,7 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
     $scope.posts = result.data[0].posts;
   })
 
-  // $scope.submitVote = function () {
-  //
-  // }
+
+
 
 }])

@@ -87,6 +87,19 @@ router.post('/auth/facebook', function(req, res, next){
     });
 })
 
+//post route to add a vote to a caption
+router.post('/vote', function (req, res, next) {
+  Captions().select('up_votes').where('caption_id', req.body.caption_id).first().then(function (up_votes) {
+    var up_votes = up_votes.up_votes
+    var new_up_votes = (up_votes+1)
+    Captions().where('caption_id', req.body.caption_id).update({up_votes:new_up_votes}).then(function (response) {
+      res.redirect('/#/posts')
+    })
+
+  })
+
+})
+
 //post route for adding a new post from the admin
 router.post('/post/new', upload.single('file'), function (req, res, next) {
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
@@ -238,8 +251,6 @@ router.get('/posts', function (req, res, next) {
           postsArray.push(value)
         }
         dataArray.push({posts: postsArray})
-        console.log("dataArray");
-        console.log(dataArray[0].posts[0].post.caption);
       }
       buildData(result)
       // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like, it is commented out at the bottom of the file as an example if needed.
@@ -262,6 +273,8 @@ router.post('/brand/new', upload.single('file'), function (req, res, next) {
       res.redirect('/#/admin')
     })
   })
+
+
 
 
 

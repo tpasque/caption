@@ -25,8 +25,5 @@ this.getPostById = function (post_id) {
     })
 }
 
-this.submitPostVote = function () {
-  // return $http.post()
-}
 
 }])
