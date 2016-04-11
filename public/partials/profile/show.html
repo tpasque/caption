@@ -4,7 +4,16 @@
   <h3 class="showPageRank">Rank: Green Bell Pepper</h3>
   <h3 class="showPageCaptionAmount">Captions Submitted: {{captionAmount}}</h3>
   <h3 class="showPageMoneyEarned">Money Earned: {{userObj.total_money_earned | currency}}</h3>
-  <h2 class="showPageTopPostsTitle">Top Posts:</h2>
+  <h2 class="showPageTopPostsTitle">Top Captions:</h2>
+  <div class="showPageTopCaptionsContainer">
+    <div ng-repeat="caption in userObj.captions | orderBy: 'up_votes': 'reverse'">
+      <p class="showPageCaptionText">Caption: "{{caption.caption}}" - Current Up Votes: {{caption.up_votes}}</p><br>
+      <!-- <p class="showPageCaptionUpVotes">{{caption.up_votes}}</p> -->
+
+
+    </div>
+
+  </div>
 </div>
 <div class="showPagePepperContainer">
   <img src="../../../images/1-Bell-Pepper.png" alt="image not found" />
