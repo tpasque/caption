@@ -88,16 +88,24 @@ router.post('/auth/facebook', function(req, res, next){
 })
 
 //post route to add a vote to a caption
+//this route also adds a point to the total_points of the User who submitted the vote
+//need to optimize this so that if they vote on another caption inside the post, it takes the first vote back.
 router.post('/vote', function (req, res, next) {
+  console.log("this is the req.body in the vote route");
+  console.log(req.body);
   Captions().select('up_votes').where('caption_id', req.body.caption_id).first().then(function (up_votes) {
     var up_votes = up_votes.up_votes
     var new_up_votes = (up_votes+1)
-    Captions().where('caption_id', req.body.caption_id).update({up_votes:new_up_votes}).then(function (response) {
-      res.redirect('/#/posts')
+    Captions().where('caption_id', req.body.caption_id).update({up_votes:new_up_votes}).then(function (captions_response) {
+      Users().select('total_points').where('facebook_id', req.body.user_facebook_id).then(function (total_points) {
+        var total_points = total_points[0].total_points
+        var new_total_points = (total_points + 1)
+        Users().where('facebook_id', req.body.user_facebook_id).update({total_points:new_total_points}).then(function (users_response) {
+          res.redirect('/#/posts')
+        })
+      })
     })
-
   })
-
 })
 
 //post route for adding a new post from the admin
@@ -177,6 +185,8 @@ router.get('/post/:id', function(req, res, next){
   })
 })
 
+//post route that adds a new caption from a user
+//this route also adds a point to the total_points of the User who added the caption
 router.post('/caption/new', function (req, res, next) {
   var caption = {};
   caption.facebook_id = req.body.user_facebook_id
@@ -185,7 +195,13 @@ router.post('/caption/new', function (req, res, next) {
   caption.up_votes = 0
   caption.time = moment().calendar()
   Captions().insert(caption).then(function (response) {
-    res.redirect('/#/posts')
+    Users().select('total_points').where('facebook_id', req.body.user_facebook_id).then(function (total_points) {
+      var total_points = total_points[0].total_points
+      var new_total_points = (total_points + 1)
+      Users().where('facebook_id', req.body.user_facebook_id).update({total_points:new_total_points}).then(function (user_response) {
+        res.redirect('/#/posts')
+      })
+    })
   })
 })
 
