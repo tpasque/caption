@@ -1,19 +1,14 @@
 
 exports.up = function(knex, Promise) {
- return knex.schema.createTable('rank', function(t){
+ return knex.schema.createTable('ranks', function(t){
    t.increments();
-   t.string('bell_pepper');
-   t.string('pimento_pepper');
-   t.string('poblano_pepper');
-   t.string('anaheim_pepper');
-   t.string('jalapeno_pepper');
-   t.string('cayenne_pepper');
-   t.string('habanero_pepper');
-   t.string('ghost_pepper');
-   t.string('scorpion_pepper');
+   t.string('pepper');
+   t.integer('min_points');
+   t.integer('max_points');
+   t.text('pepper_image_url');
  })
 };
 
 exports.down = function(knex, Promise) {
- return knex.schema.dropTableIfExists('rank');
+ return knex.schema.dropTableIfExists('ranks');
 }

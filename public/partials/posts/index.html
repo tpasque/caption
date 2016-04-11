@@ -12,14 +12,14 @@
     <div class="postContainer">
       <img class="postImage" src="{{post.post.post_campaign_url}}" alt="photo not found" />
     </div>
-    <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption.caption_id'">
+    <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id'">
       <p class="captionText">{{caption.caption}}, x</p>
       <div class="captionUpVoteContainer">
         <form class="captionUpVoteForm" action="/vote" method="POST">
           <p class="captionUpVote">{{caption.up_votes}}</p>
           <!-- <a ng-model="{{caption.caption_id}}">&#10004</a> -->
           <input type = "hidden" name = "caption_id" value="{{caption.caption_id}}"></input>
-          <input type = "hidden" name = "user_facebook_id" value="{{user}}"></input>            
+          <input type = "hidden" name = "user_facebook_id" value="{{user}}"></input>
           <button id="indexPageVoteSubmitButton" type="submit" class='btn btn-primary btn-sm'>Vote &#10004</button>
         </form>
       </div>

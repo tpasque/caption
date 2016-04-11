@@ -29,8 +29,8 @@ function Captions(){
   return knex('captions')
 }
 
-function Rank(){
-  return knex('rank')
+function Ranks(){
+  return knex('ranks')
 }
 
 function Brands(){
@@ -205,6 +205,13 @@ router.post('/caption/new', function (req, res, next) {
   })
 })
 
+router.get('/peppers', function (req, res, next) {
+  Ranks().select('*').then(function (peppers_result) {
+    console.log("peppers");
+    console.log(peppers_result);
+    res.send(peppers_result)
+  })
+})
 
 
 //Verify User Logged in: getting user information
@@ -214,11 +221,6 @@ router.post('/user', function(req, res, next){
   Users().where('facebook_id', user.facebook_id).first().then(function(result){
     // Posts().join('captions', 'posts.facebook_id', )
     Captions().select('*').where('facebook_id', user.facebook_id).then(function (caption_result) {
-      // Posts().select('*').joinRaw(caption_result).where(caption_result.post_id, 'posts.id').then(function (posts_result) {
-        // console.log("new result with posts in it########");
-        // console.log(posts_result);
-        console.log("this is the result from captions");
-        console.log(caption_result);
         result.captions = caption_result
         res.send(result)
       // })

@@ -25,6 +25,11 @@ this.getPostById = function (post_id) {
     })
 }
 
+this.getPeppers = function () {
+  return $http.get('peppers').then(function (response) {
+    return response.data
+  })
+}
 
 
 }])

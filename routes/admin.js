@@ -29,8 +29,8 @@ function Captions(){
   return knex('captions')
 }
 
-function Rank(){
-  return knex('rank')
+function Ranks(){
+  return knex('ranks')
 }
 
 function Brands(){
