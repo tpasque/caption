@@ -98,6 +98,16 @@
   height: 40%;
 }
 
+.postInfoForWinContainer{
+  background-color: #77689E;
+}
+
+.postInfoForWinContainer p{
+  color: white;
+  size: 1.5em;
+  text-align: center;
+}
+
 .captionContainer{
   height:30%;
   width: 100%;

@@ -91,8 +91,8 @@ router.post('/auth/facebook', function(req, res, next){
 //this route also adds a point to the total_points of the User who submitted the vote
 //need to optimize this so that if they vote on another caption inside the post, it takes the first vote back.
 router.post('/vote', function (req, res, next) {
-  console.log("this is the req.body in the vote route");
-  console.log(req.body);
+  // console.log("this is the req.body in the vote route");
+  // console.log(req.body);
   Captions().select('up_votes').where('caption_id', req.body.caption_id).first().then(function (up_votes) {
     var up_votes = up_votes.up_votes
     var new_up_votes = (up_votes+1)
@@ -110,15 +110,13 @@ router.post('/vote', function (req, res, next) {
 
 //post route for adding a new post from the admin
 router.post('/post/new', upload.single('file'), function (req, res, next) {
-  console.log("this is the req.body");
-  console.log(req.body);
+  // console.log("this is the req.body");
+  // console.log(req.body);
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
     Brands().select('id').where('brand_name', req.body.post_brand_name).then(function (brand_id) {
-      console.log("brand_id result");
-      console.log(brand_id);
       var post_brand_id = brand_id[0].id
       var post = {}
-      post.facebook_id = req.body.user_facebook_id
+      post.post_facebook_id = req.body.user_facebook_id
       post.brand_id = post_brand_id
       post.campaign_photo_url = cloudinary_result.secure_url
       post.public_id = cloudinary_result.public_id
@@ -133,25 +131,25 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
           var post_id = post_id[0].id
           var caption1 = {}
           caption1.post_id = post_id
-          caption1.facebook_id = req.body.user_facebook_id
+          caption1.caption_facebook_id = req.body.user_facebook_id
           caption1.caption = req.body.post_caption_1
           caption1.up_votes = 0
           Captions().insert(caption1).then(function (caption1_result) {
             var caption2 = {}
             caption2.post_id = post_id
-            caption2.facebook_id = req.body.user_facebook_id
+            caption2.caption_facebook_id = req.body.user_facebook_id
             caption2.caption = req.body.post_caption_2
             caption2.up_votes = 0
             Captions().insert(caption2).then(function (caption2_result) {
               var caption3 = {}
               caption3.post_id = post_id
-              caption3.facebook_id = req.body.user_facebook_id
+              caption3.caption_facebook_id = req.body.user_facebook_id
               caption3.caption = req.body.post_caption_3
               caption3.up_votes = 0
               Captions().insert(caption3).then(function (caption3_result) {
                 var caption4 = {}
                 caption4.post_id = post_id
-                caption4.facebook_id = req.body.user_facebook_id
+                caption4.caption_facebook_id = req.body.user_facebook_id
                 caption4.caption = req.body.post_caption_4
                 caption4.up_votes = 0
                 Captions().insert(caption4).then(function (caption4_result) {
@@ -191,7 +189,7 @@ router.get('/post/:id', function(req, res, next){
 //this route also adds a point to the total_points of the User who added the caption
 router.post('/caption/new', function (req, res, next) {
   var caption = {};
-  caption.facebook_id = req.body.user_facebook_id
+  caption.caption_facebook_id = req.body.user_facebook_id
   caption.post_id = req.body.post_id
   caption.caption = req.body.new_caption
   caption.up_votes = 0
@@ -220,7 +218,7 @@ router.post('/user', function(req, res, next){
   var user = verifyToken(token)
   Users().where('facebook_id', user.facebook_id).first().then(function(result){
     // Posts().join('captions', 'posts.facebook_id', )
-    Captions().select('*').where('facebook_id', user.facebook_id).then(function (caption_result) {
+    Captions().select('*').where('caption_facebook_id', user.facebook_id).then(function (caption_result) {
         result.captions = caption_result
         res.send(result)
       // })
@@ -231,8 +229,8 @@ router.post('/user', function(req, res, next){
 //route that gets all posts.  Chained Join query to get post with brand information and associated captions.
 router.get('/posts', function (req, res, next) {
   Captions().join('posts', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function(result){
-    console.log("result in posts route");
-    console.log(result);
+    // console.log("result in posts route");
+    // console.log(result);
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
       //[ { posts:[ { post:{post:{},brands:[],captions:[{},{},{},{}]}}]}];
       var dataArray = []
@@ -245,12 +243,14 @@ router.get('/posts', function (req, res, next) {
           caption = result[i].caption
           up_votes = result[i].up_votes
           caption_id = result[i].caption_id
+          caption_facebook_id = result[i].caption_facebook_id
           if (postsObj[post]) {
             var item =  postsObj[post]
             item.post.caption.push({
               caption:caption,
               up_votes:up_votes,
-              caption_id:caption_id
+              caption_id:caption_id,
+              caption_facebook_id:caption_facebook_id
             })
           } else{
             postsObj[post] = {
@@ -261,6 +261,7 @@ router.get('/posts', function (req, res, next) {
                 post_points_for_win: result[i].points_for_win,
                 post_start_date: result[i].start_date,
                 post_end_date: result[i].end_date,
+                post_facebook_id: result[i].post_facebook_id,
                 brand: {
                   brand_name: result[i].brand_name,
                   brand_image_url: result[i].brand_image_url
@@ -268,7 +269,8 @@ router.get('/posts', function (req, res, next) {
                 caption: [{
                   caption: caption,
                   up_votes: up_votes,
-                  caption_id:caption_id
+                  caption_id:caption_id,
+                  caption_facebook_id:caption_facebook_id
                 }]
               }
             }

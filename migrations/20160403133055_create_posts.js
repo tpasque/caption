@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
  return knex.schema.createTable('posts', function(t){
    t.increments();
-   t.string('facebook_id');
+   t.string('post_facebook_id');
    t.integer('brand_id');
    t.text('campaign_photo_url');
    t.text('public_id');

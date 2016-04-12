@@ -11,8 +11,9 @@
     </div>
     <div class="postContainer">
       <img class="postImage" src="{{post.post.post_campaign_url}}" alt="photo not found" />
-      <div class="postPointsForWinContainer">
-
+      <div class="postInfoForWinContainer">
+        <p>Points For Top Post: {{post.post.post_points_for_win}}</p>
+        <p>Money For Top Post: {{post.post.post_money_for_win | currency}}</p>
       </div>
     </div>
     <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id'">
