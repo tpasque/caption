@@ -207,8 +207,6 @@ router.post('/caption/new', function (req, res, next) {
 
 router.get('/peppers', function (req, res, next) {
   Ranks().select('*').then(function (peppers_result) {
-    console.log("peppers");
-    console.log(peppers_result);
     res.send(peppers_result)
   })
 })

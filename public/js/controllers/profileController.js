@@ -10,18 +10,52 @@ app.controller("profileController", ['$scope', '$http', '$auth', '$location', '$
     console.log(user);
 
     posts.getPeppers().then(function (result) {
-      $scope.peppers = result
-      $scope.bell_pepper = result[0]
-      $scope.pimento_pepper = result[1]
-      $scope.poblano_pepper = result[2]
-      $scope.anaheim_pepper = result[3]
-      $scope.jalapeno_pepper = result[4]
-      $scope.cayenne_pepper = result[5]
-      $scope.habanero_pepper = result[6]
-      $scope.ghost_pepper = result[7]
-      $scope.scorpion_pepper = result[8]
 
-      $scope.points_needed_next_rank = (result[0].max_points - user.total_points)
+      if(0 <= user.total_points && user.total_points <= 50){
+        $scope.pepper = result[0]
+        $scope.next_pepper = result[1]
+        $scope.points_needed_next_rank = (result[0].max_points - user.total_points)
+      }
+      if(51 <= user.total_points && user.total_points <= 100){
+        $scope.pepper = result[1]
+        $scope.next_pepper = result[2]
+        $scope.points_needed_next_rank = (result[1].max_points - user.total_points)
+      }
+      if(101 <= user.total_points && user.total_points <= 200){
+        $scope.pepper = result[2]
+        $scope.next_pepper = result[3]
+        $scope.points_needed_next_rank = (result[2].max_points - user.total_points)
+      }
+      if(201 <= user.total_points && user.total_points <= 300){
+        $scope.pepper = result[3]
+        $scope.next_pepper = result[4]
+        $scope.points_needed_next_rank = (result[3].max_points - user.total_points)
+      }
+      if(301 <= user.total_points && user.total_points <= 400){
+        $scope.pepper = result[4]
+        $scope.next_pepper = result[5]
+        $scope.points_needed_next_rank = (result[4].max_points - user.total_points)
+      }
+      if(401 <= user.total_points && user.total_points <= 500){
+        $scope.pepper = result[5]
+        $scope.next_pepper = result[6]
+        $scope.points_needed_next_rank = (result[5].max_points - user.total_points)
+      }
+      if(501 <= user.total_points && user.total_points <= 650){
+        $scope.pepper = result[6]
+        $scope.next_pepper = result[7]
+        $scope.points_needed_next_rank = (result[6].max_points - user.total_points)
+      }
+      if(651 <= user.total_points && user.total_points <= 800){
+        $scope.pepper = result[7]
+        $scope.next_pepper = result[8]
+        $scope.points_needed_next_rank = (result[7].max_points - user.total_points)
+      }
+      if(801 <= user.total_points && user.total_points <= 100000){
+        $scope.pepper = result[8]
+        $scope.next_pepper = result[8]
+        $scope.points_needed_next_rank = (result[8].max_points - user.total_points)
+      }
     })
   })
 

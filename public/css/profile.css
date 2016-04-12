@@ -1,10 +1,19 @@
+.showPageContainer{
+  width:90%;
+  height:auto;
+}
 .showPageProfileInfoContainer{
-  width:40%;
-  display:block;
+  width:90vw;
+  height: 50vh;
   position: relative;
   top:7vh;
   left: 10vw;
-  float:left;
+  /*float:left;*/
+}
+
+.showPageProfileContainer{
+  width:40vw;
+  /*position: relative;*/
 }
 
 .showPageProfileImage{
@@ -16,7 +25,6 @@
 .showPageUserName{
   color: white;
   font-size: 3.5em;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   text-decoration: underline;
 }
@@ -24,7 +32,6 @@
 .showPageRank{
   color: white;
   font-size: 1.7em;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   position: relative;
   left: 10px;
@@ -33,7 +40,6 @@
 .showPageCaptionAmount{
   color: white;
   font-size: 1.7em;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   position: relative;
   left: 10px;
@@ -42,39 +48,93 @@
 .showPageMoneyEarned{
   color: white;
   font-size: 1.7em;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   position: relative;
   left: 10px;
 }
 
-.showPageTopCaptionsInfoContainer{
-  margin-top:10vh;
+.showPageTotalPoints{
+  color: white;
+  font-size: 1.7em;
+  font-weight:100;
+  position: relative;
+  left: 10px;
 }
 
+.showPagePointsNeeded{
+  color: white;
+  font-size: 1.7em;
+  font-weight:100;
+  position: relative;
+  left: 10px;
+}
+
+/*total hack, need to fix this positioning*/
+.showPageTopCaptionsInfoContainer{
+  position: relative;
+  margin-top:-27vh;
+  width:40vw;
+  /*float:left;*/
+  left: 40vw;
+}
+
+/*more hack*/
 .showPageTopPostsTitle{
   color: white;
   font-size: 2.0em;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   position: relative;
   /*left: 20px;*/
   text-align: center;
+  right: 8vw;
+  top:-10vh;
+}
+
+.showPageTopCaptionsContainer{
+  position: relative;
+  top: -20vh;
+  height:40vh;
+  width:40vw;
+  background-color: white;
+  overflow: scroll;
 }
 
 .showPagePepperContainer{
-  width:40%;
-  /*height: 30vh;*/
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  float:right;
+  width:90vw;
+  height: 40vh;
+  /*display:inline;*/
   position: relative;
-  top:7vh;
-  right:5vw;
+  top:5vh;
+  left: 15vw;
 }
 
-.showPagePepperContainer img{
+.showPageFirstPepperContainer{
+  height:55vh;
+  width: 30vw;
+  position: relative;
+}
+
+.showPageFirstPepperContainer img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showPageFirstPepperContainer p{
+  text-align: center;
+}
+
+/*maybe the biggest hack ever.  need to refactor*/
+.showPageNextPepperContainer{
+  height:auto;
+  width: 30vw;
+  position: relative;
+  left: 40vw;
+  top: -55vh;
+
+}
+
+.showPageNextPepperContainer img{
   display:block;
   margin-left: auto;
   margin-right: auto;
@@ -83,14 +143,6 @@
 .showPagePepperContainer p{
   color: white;
   font-size: 1.7em;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   text-align: center;
-}
-
-.showPageTopCaptionsContainer{
-  height:40vh;
-  width:40vw;
-  background-color: white;
-  overflow: scroll;
 }
