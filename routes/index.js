@@ -110,6 +110,8 @@ router.post('/vote', function (req, res, next) {
 
 //post route for adding a new post from the admin
 router.post('/post/new', upload.single('file'), function (req, res, next) {
+  console.log("this is the req.body");
+  console.log(req.body);
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
     Brands().select('id').where('brand_name', req.body.post_brand_name).then(function (brand_id) {
       console.log("brand_id result");
@@ -229,6 +231,8 @@ router.post('/user', function(req, res, next){
 //route that gets all posts.  Chained Join query to get post with brand information and associated captions.
 router.get('/posts', function (req, res, next) {
   Captions().join('posts', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function(result){
+    console.log("result in posts route");
+    console.log(result);
       // [resultObject{posts:postsArray[postObject{post:post, captions:captionArray[caption]}]}]
       //[ { posts:[ { post:{post:{},brands:[],captions:[{},{},{},{}]}}]}];
       var dataArray = []
@@ -253,6 +257,10 @@ router.get('/posts', function (req, res, next) {
               post: {
                 post_id: result[i].post_id,
                 post_campaign_url: result[i].campaign_photo_url,
+                post_money_for_win: result[i].money_for_win,
+                post_points_for_win: result[i].points_for_win,
+                post_start_date: result[i].start_date,
+                post_end_date: result[i].end_date,
                 brand: {
                   brand_name: result[i].brand_name,
                   brand_image_url: result[i].brand_image_url

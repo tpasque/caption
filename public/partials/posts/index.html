@@ -11,9 +11,12 @@
     </div>
     <div class="postContainer">
       <img class="postImage" src="{{post.post.post_campaign_url}}" alt="photo not found" />
+      <div class="postPointsForWinContainer">
+
+      </div>
     </div>
     <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id'">
-      <p class="captionText">{{caption.caption}}, x</p>
+      <p class="captionText">{{caption.caption}}</p>
       <div class="captionUpVoteContainer">
         <form class="captionUpVoteForm" action="/vote" method="POST">
           <p class="captionUpVote">{{caption.up_votes}}</p>

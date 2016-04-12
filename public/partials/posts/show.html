@@ -11,7 +11,7 @@
     <div class="showPageAddNewCaptionContainer">
       <form class="showPageNewCaptionForm" method="POST" action="/caption/new">
         <label class="showPageAddNewCaptionLabel" for="new_caption">Add Your Caption:</label>
-        <input class="showPageNewCaptionTextBox"type="text" name="new_caption" ng-model="new_caption">
+        <input class="showPageNewCaptionTextBox"type="text" name="new_caption" ng-model="new_caption" required>
         <input type = "hidden" name = "user_facebook_id" value="{{user}}"></input>
         <input type = "hidden" name = "post_id" value="{{post.id}}"></input>
         <button id="showPageNewCaptionSubmitButton" type="submit" class='btn btn-primary btn-lg'>Add Caption</button>

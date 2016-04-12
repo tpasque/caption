@@ -4,22 +4,22 @@
   <form method="POST" action="/post/new" enctype="multipart/form-data">
     <h2>Add brand</h2>
     <!-- This will be a dropdown eventually that pulls from "Brands" table. It will need to grab the brand and insert brand id in to the posts table-->
-      <input type="text" name="post_brand_name" ng-model="post_brand_name" placeholder="insert brand">
+      <input type="text" name="post_brand_name" ng-model="post_brand_name" placeholder="insert brand" required>
     <h2>Add Caption Photo</h2>
       <input type="file" name="file">
     <h2>Add Captions</h2>
       <label for="post_caption_1">Caption 1:</label>
-        <input type="text" name="post_caption_1" ng-model="post_caption_1" placeholder="insert caption 1"><br>
+        <input type="text" name="post_caption_1" ng-model="post_caption_1" placeholder="insert caption 1" required><br>
       <label for="post_caption_2">Caption 2:</label>
-        <input type="text" name="post_caption_2" ng-model="post_caption_2" placeholder="insert caption 2"><br>
+        <input type="text" name="post_caption_2" ng-model="post_caption_2" placeholder="insert caption 2" required><br>
       <label for="post_caption_3">Caption 3:</label>
-        <input type="text" name="post_caption_3" ng-model="post_caption_3" placeholder="insert caption 3"><br>
+        <input type="text" name="post_caption_3" ng-model="post_caption_3" placeholder="insert caption 3" required><br>
       <label for="post_caption_4">Caption 4:</label>
-        <input type="text" name="post_caption_4" ng-model="post_caption_4" placeholder="insert caption 4"><br>
+        <input type="text" name="post_caption_4" ng-model="post_caption_4" placeholder="insert caption 4" required><br>
     <h2>Points for Top Caption</h2>
-      <input type="text" name="post_points_for_win" ng-model="post_points_for_win" placeholder="insert points for top caption">
+      <input type="text" name="post_points_for_win" ng-model="post_points_for_win" placeholder="insert points for top caption" required>
     <h2>Money for Top Caption</h2>
-      <input type="text" name="post_money_for_win" ng-model="post_money_for_win" placeholder="insert money prize for top caption">
+      <input type="text" name="post_money_for_win" ng-model="post_money_for_win" placeholder="insert money prize for top caption" required>
     <h2>Post Start date</h2>
       <input type="date" name="post_start_date" ng-model="post_start_date">
     <h2>Post End Date</h2>

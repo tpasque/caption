@@ -24,6 +24,8 @@ app.controller("postController", ['$scope', '$http', '$auth', '$location', '$rou
   //gets all posts for post index page
   posts.getAllPosts().then(function (result) {
     $scope.posts = result.data[0].posts;
+    console.log("posts");
+    console.log($scope.posts);
   })
 
 
