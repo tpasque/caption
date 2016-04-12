@@ -67,6 +67,10 @@ app.config(function ($routeProvider, $authProvider) {
       templateUrl: 'partials/admin/payments/index.html',
       controller: 'paymentController'
     })
+    .when('/toppipers', {
+      templateUrl: 'partials/users/toppipers.html',
+      controller: 'piperController'
+    })
 
 
 

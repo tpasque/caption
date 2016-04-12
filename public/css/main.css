@@ -75,12 +75,12 @@ body{
 #navbar{
   position: fixed;
   top:0;
-  left: 70%;
+  left: 65%;
   z-index: 1;
 }
 
 #navbar li a{
-  font-size: 1.5em;
+  font-size: 1.4em;
   text-decoration: none;
   color: white;
   font-weight: 200;

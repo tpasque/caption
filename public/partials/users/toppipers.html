@@ -1,0 +1,21 @@
+
+<div class="topPipersContainer">
+  <h2>Top Pipers</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users | orderBy: 'total_points': 'reverse'">
+        <td><img src="{{user.profile_image_url}}" alt="image not found" /></td>
+        <td>{{user.name}}</td>
+        <td>{{user.total_points}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

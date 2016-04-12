@@ -15,6 +15,10 @@
         <p>Points For Top Post: {{post.post.post_points_for_win}}</p>
         <p>Money For Top Post: {{post.post.post_money_for_win | currency}}</p>
       </div>
+      <div class="postAdditionalInfoContainer">
+        <p>Add or Choose Your Favorite Caption</p>
+        <p>Campaign ends {{post.post.post_end_date | date: fullDate}}</p>
+      </div>
     </div>
     <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id'">
       <p class="captionText">{{caption.caption}}</p>

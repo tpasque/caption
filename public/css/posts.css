@@ -108,6 +108,12 @@
   text-align: center;
 }
 
+.postAdditionalInfoContainer p{
+  color: #77689E;
+  size: 1.5em;
+  text-align: center;
+}
+
 .captionContainer{
   height:30%;
   width: 100%;

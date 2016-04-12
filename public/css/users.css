@@ -64,3 +64,63 @@
 .allUserContainer td:last-child{
   text-align: left;
 }
+
+/*top pipers / leaderboard css*/
+
+
+.topPipersContainer{
+  height:90vh;
+  width: 70%;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top:7vh;
+}
+
+.topPipersContainer table{
+  border-collapse: collapse;
+  position: relative;
+  left: 15vw;
+  top:5vh;
+  /*border: 1px solid #77689E;*/
+}
+
+.topPipersContainer h2{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 2.5em;
+}
+
+
+.topPipersContainer img{
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topPipersContainer th{
+  font-size: 1.7em;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #77689E;
+  color:#77689E;
+}
+
+.topPipersContainer tr{
+  border-spacing: 2.0rem
+
+}
+
+.topPipersContainer td{
+  text-align: center;
+  font-size: 1.5em;
+  width: 20vh;
+  height: 12vh;
+  color:#3B0C56;
+}
