@@ -13,7 +13,7 @@
       <h2 class="showPageTopPostsTitle">Top Captions:</h2>
       <div class="showPageTopCaptionsContainer">
         <div ng-repeat="caption in userObj.captions | orderBy: 'up_votes': 'reverse'">
-          <p class="showPageCaptionText">Caption: "{{caption.caption}}" - Current Up Votes: {{caption.up_votes}}</p><br>
+          <p class="showPageProfileCaptionText">Caption: "{{caption.caption}}" - Current Up Votes: {{caption.up_votes}}</p><br>
         </div>
       </div>
     </div>

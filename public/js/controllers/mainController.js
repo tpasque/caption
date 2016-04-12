@@ -67,5 +67,22 @@ app.controller('mainController', ['$scope', '$location','$auth','$rootScope','po
   console.log("username is: " + $scope.userName);
 })
 
+//checks to see if logged in user has is_admin set to true or false, the sets isAdmin to that value
+
+// $scope.isAdmin;
+// console.log($scope.isAdmin);
+posts.getUserData().then(function(payload){
+  console.log("payload");
+  console.log(payload);
+  console.log("payload admin");
+  console.log(payload.is_admin  );
+  $scope.userData = payload;
+  if (payload.is_admin === true) {
+  $scope.isAdmin = true;
+  } else {
+  $scope.isAdmin = false;
+  }
+})
+
 
 }])

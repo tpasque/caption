@@ -34,7 +34,7 @@
           <!-- <a href="/#/login">Sign In</a></li> -->
           <li ng-show="user.session"><a href="/#/" ng-click="logout()">Logout</a></li>
           <!-- <li ng-show="user.session"><a href="/#/profile">Profile</a></li> -->
-          <li><a href="/#/admin">Admin</a></li>
+          <li ng-show="isAdmin"><a href="/#/admin">Admin</a></li>
         </ul>
       </div>
 
