@@ -1,5 +1,6 @@
 app.controller("userController", ['$scope', '$http', '$auth', '$location', '$route', 'posts', 'users', function ($scope, $http, $auth, $location, $route, posts, users ) {
   console.log("you are on the user controller");
+
   posts.getUserData().then(function (user) {
     $scope.userAdmin = user.is_admin
     $scope.userAgency = user.is_agency
@@ -18,12 +19,6 @@ app.controller("userController", ['$scope', '$http', '$auth', '$location', '$rou
     } else {
     $scope.isAdmin = false;
     }
-  })
-
-  //gets all Users
-  users.getAllUsers().then(function (users) {
-    console.log("this is the users in the userController");
-    console.log(users);
   })
 
 }])

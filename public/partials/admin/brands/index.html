@@ -1,2 +1,22 @@
-<h1 style="color:white">you are on the index page for brands</h1>
-<h1 style="color:white">you are on the index page for brands</h1>
+
+<div class="allBrandContainer">
+  <h2>Pipers</h2>
+  <h3>There are {{brandCount}} brands marketing in the application</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="brand in brands | orderBy: 'id'">
+        <td>{{brand.id}}</td>
+        <td><img src="{{brand.brand_image_url}}" alt="image not found" /></td>
+        <td>{{brand.brand_name}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

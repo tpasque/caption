@@ -1,5 +1,24 @@
 
 <div class="allUserContainer">
-  <p>User</p>
+  <h2>Pipers</h2>
+  <h3>There are {{piperCount}} pipers using the application</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in users | orderBy: 'id'">
+        <td>{{user.id}}</td>
+        <td><img src="{{user.profile_image_url}}" alt="image not found" /></td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

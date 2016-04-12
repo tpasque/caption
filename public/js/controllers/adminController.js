@@ -19,4 +19,12 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
     $scope.isAdmin = false;
     }
   })
+
+  posts.getBrands().then(function (brands) {
+    console.log("this is the brands in the admin controller");
+    console.log(brands);
+    $scope.brands = brands
+    $scope.brandCount = brands.length
+  })
+
 }])

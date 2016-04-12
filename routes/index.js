@@ -108,6 +108,22 @@ router.post('/vote', function (req, res, next) {
   })
 })
 
+//route to get all pipers for admin dashboard
+router.get('/pipers', function (req, res, next) {
+  Users().select('*').then(function (users_response) {
+    console.log("users in pipers route in express");
+    console.log(users_response);
+    res.send(users_response)
+
+  })
+})
+
+router.get('/brands', function (req, res, next) {
+  Brands().select('*').then(function (brands_response) {
+    res.send(brands_response)
+  })
+})
+
 //post route for adding a new post from the admin
 router.post('/post/new', upload.single('file'), function (req, res, next) {
   // console.log("this is the req.body");
@@ -120,8 +136,8 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
       post.brand_id = post_brand_id
       post.campaign_photo_url = cloudinary_result.secure_url
       post.public_id = cloudinary_result.public_id
-      // post.start_date = req.body.post_start_date
-      // post.end_date = req.body.post_end_date
+      post.start_date = req.body.post_start_date
+      post.end_date = req.body.post_end_date
       post.points_for_win = req.body.post_points_for_win
       post.money_for_win = req.body.post_money_for_win
       post.time = moment().calendar()
@@ -164,7 +180,7 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
   })
 })
 
-//post route to get post by ID for individual post page
+//post route to get post by ID for individual post page.  Currently using for adding a caption and seeing an ind post
 router.get('/post/:id', function(req, res, next){
   Posts().where('id', req.params.id).first().then(function(post_result){
     //this is what we are building

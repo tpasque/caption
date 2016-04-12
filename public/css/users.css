@@ -8,3 +8,59 @@
   position: relative;
   top:7vh;
 }
+
+.allUserContainer table{
+  border-collapse: collapse;
+  position: relative;
+  left: 10vw;
+  top:5vh;
+  /*border: 1px solid #77689E;*/
+}
+
+.allUserContainer h2{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 2.0em;
+}
+
+.allUserContainer h3{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 1.8em;
+}
+
+.allUserContainer img{
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.allUserContainer th{
+  font-size: 1.5em;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #77689E;
+  color:#77689E;
+}
+
+.allUserContainer tr{
+  border-spacing: 2.0rem
+
+}
+
+.allUserContainer td{
+  text-align: center;
+  font-size: 1.3em;
+  width: 20vh;
+  height: 12vh;
+  color:#3B0C56;
+}
+
+.allUserContainer td:last-child{
+  text-align: left;
+}

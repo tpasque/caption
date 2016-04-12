@@ -31,5 +31,16 @@ this.getPeppers = function () {
   })
 }
 
+this.getPipers = function () {
+  return $http.get('pipers').then(function (response) {
+    return response.data
+  })
+}
+
+this.getBrands = function () {
+  return $http.get('brands').then(function (response) {
+    return response.data
+  })
+}
 
 }])

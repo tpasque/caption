@@ -51,9 +51,9 @@ app.config(function ($routeProvider, $authProvider) {
       templateUrl: 'partials/admin/brands/new.html',
       controller: 'adminController'
     })
-    .when('/users', {
+    .when('/pipers', {
       templateUrl: 'partials/users/index.html',
-      controller: 'userController'
+      controller: 'piperController'
     })
     .when('/admin/brands', {
       templateUrl: 'partials/admin/brands/index.html',

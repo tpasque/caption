@@ -46,3 +46,72 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/*admin page - view all brands*/
+
+.allBrandContainer{
+  height:90vh;
+  width: 70%;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top:7vh;
+}
+
+.allBrandContainer table{
+  border-collapse: collapse;
+  position: relative;
+  left: 15vw;
+  top:5vh;
+  /*border: 1px solid #77689E;*/
+}
+
+.allBrandContainer h2{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 2.0em;
+}
+
+.allBrandContainer h3{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 1.8em;
+}
+
+.allBrandContainer img{
+  border-radius: 50%;
+  height: 75px;
+  width: 90px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.allBrandContainer th{
+  font-size: 1.5em;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #77689E;
+  color:#77689E;
+}
+
+.allBrandContainer tr{
+  border-spacing: 2.0rem
+
+}
+
+.allBrandContainer td{
+  text-align: center;
+  font-size: 1.3em;
+  width: 20vh;
+  height: 12vh;
+  color:#3B0C56;
+}
+
+.allBrandContainer td:last-child{
+  text-align: left;
+}
