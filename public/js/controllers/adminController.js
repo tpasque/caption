@@ -30,6 +30,9 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
     for (var i = 0; i < brands.length; i++) {
       newArr.push(brands[i].brand_name)
     }
+    console.log("new arr in admin controller");
+    console.log(newArr);
+
     $scope.opts = newArr
   })
 

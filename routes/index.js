@@ -218,6 +218,8 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
   console.log(req.body);
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
     Brands().select('id').where('brand_name', req.body.post_brand_name).then(function (brand_id) {
+      console.log("this is the brand id after the BRANDS query");
+      console.log(brand_id);
       var post_brand_id = brand_id[0].id
       var post = {}
       post.post_facebook_id = req.body.user_facebook_id
@@ -391,31 +393,11 @@ router.get('/posts', function (req, res, next) {
         }
         dataArray.push({posts: postsArray})
         // console.log(dataArray[0].posts[0].post);
-        var postCaptionsArray = dataArray[0].posts[3].post.caption
-        var topCaption = {}
-        console.log(postCaptionsArray[0].up_votes);
-        // for (var i = 1; i < postCaptionsArray.length; i++) {
-        //   if(postCaptionsArray[i-1].up_votes > postCaptionsArray[i].up_votes){
-        //     topCaption.caption = postCaptionsArray[i-1].caption
-        //     topCaption.up_votes = postCaptionsArray[i-1].up_votes
-        //     topCaption.caption_id = postCaptionsArray[i-1].caption_id
-        //     topCaption.caption_facebook_id = postCaptionsArray[i-1].caption_facebook_id
-        //   }
-        // }
-        var maxCaption = postCaptionsArray.reduce(function(prev, current) {
-            return (prev.up_votes > current.up_votes) ? prev : current
-        })
-
-        console.log("answer?");
-        console.log(maxCaption);
-        console.log(postCaptionsArray);
-        console.log("this is the new object with the max up_votes");
-        // console.log(topCaption);
+        // })
       }
       buildData(result)
       // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like, it is commented out at the bottom of the file as an example if needed.
       res.send(dataArray)
-
   })
 })
 
