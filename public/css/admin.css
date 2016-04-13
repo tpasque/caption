@@ -22,7 +22,7 @@
 }
 
 .adminAddControlContainer{
-  height: 60vh;
+  height: 70vh;
   width: 31%;
   background-color: white;
   position: relative;
@@ -60,7 +60,7 @@
 }
 
 #adminViewControlContainer{
-  height: 60vh;
+  height: 70vh;
   width: 60%;
   background-color: white;
   position: relative;
