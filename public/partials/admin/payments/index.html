@@ -1,2 +1,39 @@
-<h1 style="color:white">you are on the index page for payments</h1>
-<h1 style="color:white">you are on the index page for payments</h1>
+
+<div class="adminPaymentsContainer">
+  <h2>Pay the Piper</h2>
+  <h3>Today's Date: {{date}}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Brand Logo</th>
+        <th>Brand Name</th>
+        <th>Post Image</th>
+        <th>Post Start Date</th>
+        <th>Post End Date</th>
+        <th>Prize</th>
+        <th>Top Caption</th>
+        <th>Caption Votes</th>
+        <th>Piper Image</th>
+        <th>Piper</th>
+        <th>Email</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="payment in payments| orderBy:'post.post_end_date'">
+        <td><img class="adminPaymentsBrandImage" src="{{payment.post.brand.brand_image_url}}" alt="image not found" /></td>
+        <td>{{payment.post.brand.brand_name}}</td>
+        <td><img class="adminPaymentsPostImage" src="{{payment.post.post_campaign_url}}" alt="image not found" /></td>
+        <td>{{payment.post.post_start_date | date: fullDate}}</td>
+        <td>{{payment.post.post_end_date | date: fullDate}}</td>
+        <td>{{payment.post.post_money_for_win | currency}}</td>
+        <td>{{payment.post.caption.caption}}</td>
+        <td>{{payment.post.caption.up_votes}}</td>
+        <td><img class="adminPaymentsPiperImage" src="{{payment.post.caption_facebook_id.profile_image_url}}" alt="image not found" /></td>
+        <td>{{payment.post.caption_facebook_id.name}}</td>
+        <td>{{payment.post.caption_facebook_id.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -111,8 +111,6 @@ router.post('/vote', function (req, res, next) {
 //route to get all pipers for admin dashboard
 router.get('/pipers', function (req, res, next) {
   Users().select('*').then(function (users_response) {
-    console.log("users in pipers route in express");
-    console.log(users_response);
     res.send(users_response)
 
   })
@@ -121,6 +119,96 @@ router.get('/pipers', function (req, res, next) {
 router.get('/brands', function (req, res, next) {
   Brands().select('*').then(function (brands_response) {
     res.send(brands_response)
+  })
+})
+
+//get route for payment information for admin page.  Gets top caption and the info about that pipers
+router.get('/admin/payments', function (req, res, next) {
+  Captions().join('posts', 'posts.id', 'captions.post_id').join('brands', 'posts.brand_id', 'brands.id').then(function(result){
+    Users().select('*').then(function (users_result) {
+      var dataArray = []
+      var postsArray = [];
+      var postsObj = {};
+      var captionsArray = [];
+      var buildData = function(){
+        for (var i = 0; i < result.length; i++) {
+          post = result[i].post_id
+          caption = result[i].caption
+          up_votes = result[i].up_votes
+          caption_id = result[i].caption_id
+          caption_facebook_id = result[i].caption_facebook_id
+          if (postsObj[post]) {
+            var item =  postsObj[post]
+            item.post.caption.push({
+              caption:caption,
+              up_votes:up_votes,
+              caption_id:caption_id,
+              caption_facebook_id:caption_facebook_id
+            })
+          } else{
+            postsObj[post] = {
+              post: {
+                post_id: result[i].post_id,
+                post_campaign_url: result[i].campaign_photo_url,
+                post_money_for_win: result[i].money_for_win,
+                post_points_for_win: result[i].points_for_win,
+                post_start_date: result[i].start_date,
+                post_end_date: result[i].end_date,
+                post_facebook_id: result[i].post_facebook_id,
+                brand: {
+                  brand_name: result[i].brand_name,
+                  brand_image_url: result[i].brand_image_url
+                },
+                caption: [{
+                  caption: caption,
+                  up_votes: up_votes,
+                  caption_id:caption_id,
+                  caption_facebook_id:caption_facebook_id
+                }]
+              }
+            }
+          }
+        }
+        for (var key in postsObj){
+          var value = postsObj[key];
+          postsArray.push(value)
+        }
+        dataArray.push({posts: postsArray})
+        var newArr = dataArray[0].posts
+        for (var i = 0; i < newArr.length; i++) {
+          var maxCaption = newArr[i].post.caption.reduce(function(prev, current) {
+            return (prev.up_votes > current.up_votes) ? prev : current
+          })
+          newArr[i].post.caption = maxCaption
+        }
+        for (var i = 0; i < newArr.length; i++) {
+          var cfi = newArr[i].post.caption.caption_facebook_id
+          for (var j = 0; j < users_result.length; j++) {
+            var urfi = users_result[j].facebook_id
+            if(cfi==urfi){
+              newArr[i].post.caption_facebook_id = users_result[j]
+            }
+          }
+        }
+        res.send(newArr)
+      }
+      buildData(result)
+    })
+
+  })
+
+})
+
+//gets information to use on dashboard analytics
+router.get('/dashboard', function (req, res, next) {
+  Posts().select('*').then(function (posts) {
+    Captions().select('*').then(function (captions) {
+      Brands().select('*').then(function (brands) {
+        Users().select('*').then(function (users) {
+          res.send({posts:posts, captions:captions, brands:brands, users:users})
+        })
+      })
+    })
   })
 })
 
@@ -302,6 +390,27 @@ router.get('/posts', function (req, res, next) {
           postsArray.push(value)
         }
         dataArray.push({posts: postsArray})
+        // console.log(dataArray[0].posts[0].post);
+        var postCaptionsArray = dataArray[0].posts[3].post.caption
+        var topCaption = {}
+        console.log(postCaptionsArray[0].up_votes);
+        // for (var i = 1; i < postCaptionsArray.length; i++) {
+        //   if(postCaptionsArray[i-1].up_votes > postCaptionsArray[i].up_votes){
+        //     topCaption.caption = postCaptionsArray[i-1].caption
+        //     topCaption.up_votes = postCaptionsArray[i-1].up_votes
+        //     topCaption.caption_id = postCaptionsArray[i-1].caption_id
+        //     topCaption.caption_facebook_id = postCaptionsArray[i-1].caption_facebook_id
+        //   }
+        // }
+        var maxCaption = postCaptionsArray.reduce(function(prev, current) {
+            return (prev.up_votes > current.up_votes) ? prev : current
+        })
+
+        console.log("answer?");
+        console.log(maxCaption);
+        console.log(postCaptionsArray);
+        console.log("this is the new object with the max up_votes");
+        // console.log(topCaption);
       }
       buildData(result)
       // var stuff is a data set I used to send test data through to model what my eventual dataArray would look like, it is commented out at the bottom of the file as an example if needed.
@@ -324,9 +433,6 @@ router.post('/brand/new', upload.single('file'), function (req, res, next) {
       res.redirect('/#/admin')
     })
   })
-
-
-
 
 
 })
