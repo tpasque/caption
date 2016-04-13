@@ -214,8 +214,8 @@ router.get('/dashboard', function (req, res, next) {
 
 //post route for adding a new post from the admin
 router.post('/post/new', upload.single('file'), function (req, res, next) {
-  // console.log("this is the req.body");
-  // console.log(req.body);
+  console.log("this is the req.body");
+  console.log(req.body);
   cloudinary.uploader.upload(req.file.filename, function (cloudinary_result) {
     Brands().select('id').where('brand_name', req.body.post_brand_name).then(function (brand_id) {
       var post_brand_id = brand_id[0].id
@@ -257,7 +257,7 @@ router.post('/post/new', upload.single('file'), function (req, res, next) {
                 caption4.caption = req.body.post_caption_4
                 caption4.up_votes = 0
                 Captions().insert(caption4).then(function (caption4_result) {
-                  res.redirect('/#/posts')
+                  res.redirect('/#/admin')
                 })
               })
             })

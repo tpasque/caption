@@ -20,7 +20,7 @@
         <p>Campaign ends {{post.post.post_end_date | date: fullDate}}</p>
       </div>
     </div>
-    <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id'">
+    <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id' | limitTo:4">
       <p class="captionText">{{caption.caption}}</p>
       <div class="captionUpVoteContainer">
         <form class="captionUpVoteForm" action="/vote" method="POST">

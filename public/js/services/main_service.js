@@ -45,16 +45,12 @@ this.getBrands = function () {
 
 this.getPaymentInfo = function () {
   return $http.get('admin/payments').then(function (response) {
-    console.log("response 1 in main service NEW ARR");
-    console.log(response.data)
     return response.data
   })
 }
 
 this.getDashBoardInfo = function () {
   return $http.get('dashboard').then(function (response) {
-    console.log("response in admin get dashboard posts");
-    console.log(response.data);
     return response.data
   })
 }

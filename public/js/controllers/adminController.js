@@ -21,8 +21,16 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
   })
 
   posts.getBrands().then(function (brands) {
+    console.log("brands");
+    console.log(brands);
     $scope.brands = brands
     $scope.brandCount = brands.length
+
+    var newArr = []
+    for (var i = 0; i < brands.length; i++) {
+      newArr.push(brands[i].brand_name)
+    }
+    $scope.opts = newArr
   })
 
 
@@ -33,7 +41,7 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
     var posts = info.posts.length
     var brands = info.brands.length
     var captions = info.captions.length
-    //charts - javascript
+    //chart on admin dashboard with values being fed to it
     $(function () {
       $('#adminViewControlContainer').highcharts({
         title: {
