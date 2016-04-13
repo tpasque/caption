@@ -37,6 +37,7 @@
 .aboutPageFacebookSignUp{
   position: relative;
   z-index: 1;
+  top: 5vh;
 }
 
 .pepperPicturesContainer{
@@ -46,7 +47,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:15vh;
+  top:18vh;
 }
 
 .pepperPicturesContainer img{
