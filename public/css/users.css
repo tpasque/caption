@@ -1,18 +1,19 @@
 .allUserContainer{
   height:90vh;
-  width: 70%;
+  width: 90%;
   background-color: white;
   display: block;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:7vh;
+  top:11vh;
+  overflow: scroll;
 }
 
 .allUserContainer table{
   border-collapse: collapse;
   position: relative;
-  left: 10vw;
+  left: 2vw;
   top:5vh;
   /*border: 1px solid #77689E;*/
 }
@@ -76,7 +77,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:7vh;
+  top:11vh;
 }
 
 .topPipersContainer table{

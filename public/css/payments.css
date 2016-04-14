@@ -6,7 +6,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:7vh;
+  top:11vh;
   overflow: scroll;
 }
 
@@ -71,6 +71,14 @@
 
 .adminPaymentsContainer td{
   text-align: center;
+  font-size: 1.1em;
+  width: 20vh;
+  height: 12vh;
+  color:#3B0C56;
+}
+
+.adminPaymentsContainer td:last-child{
+  text-align: left;
   font-size: 1.1em;
   width: 20vh;
   height: 12vh;

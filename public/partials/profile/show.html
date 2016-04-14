@@ -3,31 +3,33 @@
     <div class="showPageProfileContainer">
       <img class="showPageProfileImage"src="{{userObj.profile_image_url}}" alt="file not found" />
       <h2 class="showPageUserName">{{userObj.name}}</h2>
-      <h3 class="showPageRank">Rank: {{pepper.pepper}}</h3>
+      <h3 class="showPageRank">Piperness: {{pepper.pepper}}</h3>
       <h3 class="showPageCaptionAmount">Captions Submitted: {{captionAmount}}</h3>
       <h3 class="showPageMoneyEarned">Money Earned: {{userObj.total_money_earned | currency}}</h3>
       <h3 class="showPageTotalPoints">Total Points: {{userObj.total_points}}</h3>
       <h3 class="showPagePointsNeeded">Points Needed for Next Rank: {{points_needed_next_rank}}</h3>
     </div>
-    <div class="showPageTopCaptionsInfoContainer">
+    <div id="showPageTopCaptionsInfoContainer" style="width: 400px; height: 400px; margin: 0 auto">
+    </div>
+    <!-- <div class="showPageTopCaptionsInfoContainer">
       <h2 class="showPageTopPostsTitle">Top Captions:</h2>
       <div class="showPageTopCaptionsContainer">
         <div ng-repeat="caption in userObj.captions | orderBy: 'up_votes': 'reverse'">
           <p class="showPageProfileCaptionText">Caption: "{{caption.caption}}" - Current Up Votes: {{caption.up_votes}}</p><br>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="showPagePepperContainer">
     <div class="showPageFirstPepperContainer">
-      <p>Your Current Rank: {{pepper.pepper}}</p>
+      <p>Current Piperness: {{pepper.pepper}}</p>
       <img src="{{pepper.pepper_image_url}}" alt="image not found" />
       <!-- <p>General Content Votes: 30</p>
       <p>Your Caption Votes: 10</p>
       <p>Top Caption Finishes: 1</p> -->
     </div>
     <div class="showPageNextPepperContainer">
-      <p>Your Next Ranking: {{next_pepper.pepper}}</p>
+      <p>Next Piperness: {{next_pepper.pepper}}</p>
       <img class="showPageNextPepperImage" src="{{next_pepper.pepper_image_url}}" alt="image not found" />
     </div>
   </div>

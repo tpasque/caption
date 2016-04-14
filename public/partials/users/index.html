@@ -1,13 +1,16 @@
 
 <div class="allUserContainer">
   <h2>Pipers</h2>
-  <h3>There are {{piperCount}} pipers using the application</h3>
+  <h3>There are {{piperCount}} posts in the application</h3>
   <table>
     <thead>
       <tr>
         <th>ID</th>
         <th>Image</th>
         <th>Name</th>
+        <th>Total Money Won</th>
+        <th>Total Money Owed</th>
+        <th>Total Points</th>
         <th>Email</th>
       </tr>
     </thead>
@@ -16,6 +19,9 @@
         <td>{{user.id}}</td>
         <td><img src="{{user.profile_image_url}}" alt="image not found" /></td>
         <td>{{user.name}}</td>
+        <td>{{user.total_money_earned | currency}}</td>
+        <td>{{user.total_money_owed | currency}}</td>
+        <td>{{user.total_points}}</td>
         <td>{{user.email}}</td>
       </tr>
     </tbody>

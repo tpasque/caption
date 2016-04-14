@@ -1,2 +1,26 @@
-<h1 style="color:white">you are on the index page for posts where you can read, edit and delete</h1>
-<h1 style="color:white">you are on the index page for posts where you can read, edit and delete</h1>
+<div class="adminPostsIndexContainer">
+  <h2>Posts</h2>
+  <h3>There are {{postCount}} posts in the application</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Points for Win</th>
+        <th>Money For Win</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="post in posts | orderBy: 'id'">
+        <td>{{post.id}}</td>
+        <td><img src="{{post.campaign_photo_url}}" alt="image not found" /></td>
+        <td>{{post.start_date | date: fullDate}}</td>
+        <td>{{post.end_date | date: fullDate}}</td>
+        <td>{{post.points_for_win}}</td>
+        <td>{{post.money_for_win | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

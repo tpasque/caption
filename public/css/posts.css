@@ -164,10 +164,12 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:7vh;
+  top:12vh;
 }
 
 .postsNewFormContainer h1{
+  position: relative;
+  top:2vh;
   text-align: center;
   text-decoration: underline;
   position: relative;
@@ -214,7 +216,7 @@
     margin-right: auto;
     width: 250px;
     height: 60px;
-  
+
 }
 .fileUpload input.upload {
     position: absolute;
@@ -245,7 +247,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:7vh;
+  top:11vh;
 }
 
 .showPageIndPostContainer{
@@ -338,3 +340,69 @@
   /*position: relative;
   left: 2vw;*/
   float:right;
+}
+
+/*admin posts index page*/
+.adminPostsIndexContainer{
+  height:90vh;
+  width: 90%;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top:11vh;
+  overflow: scroll;
+}
+
+.adminPostsIndexContainer table{
+  border-collapse: collapse;
+  position: relative;
+  left: 10vw;
+  top:5vh;
+  /*border: 1px solid #77689E;*/
+}
+
+.adminPostsIndexContainer h2{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 2.0em;
+}
+
+.adminPostsIndexContainer h3{
+  position: relative;
+  left: 2vw;
+  color:#77689E;
+  font-size: 1.8em;
+}
+
+.adminPostsIndexContainer img{
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adminPostsIndexContainer th{
+  font-size: 1.5em;
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #77689E;
+  color:#77689E;
+}
+
+.adminPostsIndexContainer tr{
+  border-spacing: 2.0rem
+
+}
+
+.adminPostsIndexContainer td{
+  text-align: center;
+  font-size: 1.3em;
+  width: 20vh;
+  height: 12vh;
+  color:#3B0C56;
+}

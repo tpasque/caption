@@ -1,7 +1,7 @@
 .adminTrafficControllerTitle{
   color:white;
   position: relative;
-  top: 8vh;
+  top: 10vh;
   display:block;
   margin-left: auto;
   margin-right: auto;
@@ -38,6 +38,16 @@
   text-align: center;
 }
 
+.adminAddControlContainer button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height:40px;
+  width:100px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
 .adminAddControlContainer p{
   height: 5vh;
   width: 10vw;
@@ -69,61 +79,3 @@
   float: left;
   margin-right:1vw;
 }
-
-/*.adminViewControlContainer h2{
-  position: relative;
-  text-align: center;
-}
-
-.adminViewControlContainer p{
-  height: 5vh;
-  width: 10vw;
-  display:block;
-  text-align: center;
-  background-color: #BB5853;
-  color:white;
-  font-size: 1.7em;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.adminViewControlContainer a{
-  color: inherit;
-}
-
-.adminViewControlContainer a:hover{
-  text-decoration: none;
-}
-
-.adminPayControlContainer{
-  height: 60vh;
-  width: 31%;
-  background-color: white;
-  position: relative;
-  top: 10vh;
-  left:3vw;
-  float: left;
-}
-.adminPayControlContainer h2{
-  position: relative;
-  text-align: center;
-}
-.adminPayControlContainer p{
-  height: 5vh;
-  width: 10vw;
-  display:block;
-  text-align: center;
-  background-color: #BB5853;
-  color:white;
-  font-size: 1.7em;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.adminPayControlContainer a{
-  color: inherit;
-}
-.adminPayControlContainer a:hover{
-  text-decoration: none;
-}*/

@@ -40,6 +40,9 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
 
   posts.getDashBoardInfo().then(function (info) {
 
+    $scope.posts = info.posts
+    $scope.postCount = info.posts.length
+
     var pipers = info.users.length
     var posts = info.posts.length
     var brands = info.brands.length
