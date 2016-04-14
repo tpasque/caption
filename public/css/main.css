@@ -13,6 +13,8 @@ body{
 .indexContainer{
   position: relative;
   top:10vh;
+  height:80%;
+  width:100%;
 }
 
 .indexTitleContainer{
