@@ -85,8 +85,8 @@ app.controller("profileController", ['$scope', '$http', '$auth', '$location', '$
             pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
             positioner: function (labelWidth, labelHeight) {
                 return {
-                    x: 200 - labelWidth / 2,
-                    y: 180
+                    x: 170 - labelWidth / 2,
+                    y: 140
                 };
             }
         },
