@@ -86,7 +86,7 @@ app.controller("profileController", ['$scope', '$http', '$auth', '$location', '$
             positioner: function (labelWidth, labelHeight) {
                 return {
                     x: 160 - labelWidth / 2,
-                    y: 125
+                    y: 130
                 };
             }
         },
