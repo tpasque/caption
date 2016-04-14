@@ -1,5 +1,5 @@
 .aboutInfoContainer{
-  height:30vh;
+  height:auto;
   width: 70%;
   display:block;
   margin-left: auto;
@@ -8,56 +8,84 @@
   top: 5vh;
 }
 
-.aboutInfoContainer h2{
-  color: white;
-  font-size: 2.5em;
-  text-align: center;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
-  font-weight:100;
-  margin-bottom: 60px;
+.aboutInfoTextContainer{
+  height:50%;
+  width: 100%;
 }
 
-.aboutInfoContainer p{
+.aboutInfoTextContainer h1{
+  color: white;
+  font-size: 2.7em;
+  text-align: center;
+  font-weight:100;
+  margin-bottom: 60px;
+  position: relative;
+  top:10vh;
+}
+
+.aboutInfoTextContainer h2{
+  position: relative;
+  top:10vh;
   color: white;
   font-size: 2.0em;
   text-align: center;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
 }
 
-.aboutInfoContainer h3{
+.aboutInfoTextContainer h3{
+  position: relative;
+  top:10vh;
   color: white;
   font-size: 1.5em;
   text-align: center;
-  /*font-family: 'Andale Mono', AndaleMono, monospace;*/
   font-weight:100;
   margin-top: 8vh;
 }
 
-.aboutPageFacebookSignUp{
-  position: relative;
-  z-index: 1;
-  top: 5vh;
-}
-
 .pepperPicturesContainer{
-  height:30vh;
-  width: 100%;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
+  height:auto;
+  width:100%;
   position: relative;
   top:18vh;
 }
 
-.pepperPicturesContainer img{
-  height:150px;
-  width: 150px;
-  padding: 20px;
+.pepperPicturesHolder{
+  height:auto;
+  width:70vw;
   position: relative;
+  left:20vw;
+}
+
+.pepperPicturesHolder img{
+  text-align: center;
+  height:100px;
+  width: 100px;
+  padding: 10px;
   float:left;
+}
+
+.aboutPageFacebookSignUp{
+  clear:both;
+  height:100%;
+  width:100%;
+  position: relative;
+  top:25vh;
+  height:auto;
+}
+
+#aboutFacebookSignInButton{
+  height: 100px;
+  width: 220px;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  color:white;
+  font-size: 1.2em;
+  border-radius: 40px 40px 40px 40px;
+  border: none;
   display:block;
   margin-left: auto;
   margin-right: auto;
-  left: 5vw;
+}
+
+#aboutFacebookSignInButton:hover{
+  border: white 2px solid;
 }

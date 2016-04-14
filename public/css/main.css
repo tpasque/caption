@@ -17,7 +17,7 @@ body{
 
 .indexTitleContainer{
   width:100%;
-  height:15%;
+  height:20%;
   position: fixed;
   top:0;
   background-color: #430961;
@@ -35,6 +35,8 @@ body{
 }
 
 .indexImage{
+  position: relative;
+  top:5vh;
   display:block;
   margin-left: auto;
   margin-right: auto;
@@ -52,7 +54,7 @@ body{
 .indexAboutText{
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
-  margin-top: 3vh;
+  margin-top: 10vh;
   font-weight:100;
 }
 
@@ -101,14 +103,14 @@ footer{
   background-color: red;
 }
 
-.facebookSignInButton{
+#facebookSignInButton{
+  position: relative;
   display:block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5vh;
-  height: 10vh;
-  width: 15vw;
-  background-color: #385A93;
+  height: 100px;
+  width: 220px;
   font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
   color:white;
   font-size: 1.2em;
@@ -116,6 +118,6 @@ footer{
   border: none;
 }
 
-.facebookSignInButton:hover{
+#facebookSignInButton:hover{
   border: white 2px solid;
 }
