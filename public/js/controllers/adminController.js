@@ -5,7 +5,7 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
     $scope.piper = user.is_piper
     $scope.user_facebook_id = user.facebook_id
     $scope.userObj = user
-    console.log(user);
+    // console.log(user);
   })
 
   //checks to see if logged in user has is_admin set to true or false, the sets isAdmin to that value
@@ -21,8 +21,6 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
   })
 
   posts.getBrands().then(function (brands) {
-    console.log("brands");
-    console.log(brands);
     $scope.brands = brands
     $scope.brandCount = brands.length
 
@@ -30,9 +28,6 @@ app.controller("adminController", ['$scope', '$http', '$auth', '$location', '$ro
     for (var i = 0; i < brands.length; i++) {
       newArr.push(brands[i].brand_name)
     }
-    console.log("new arr in admin controller");
-    console.log(newArr);
-
     $scope.opts = newArr
   })
 
