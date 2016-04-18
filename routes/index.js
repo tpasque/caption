@@ -108,6 +108,24 @@ router.post('/vote', function (req, res, next) {
   })
 })
 
+router.post('/vote/:id', function (req, res, next) {
+  console.log("req params");
+console.log(req.params);
+  Captions().select('up_votes').where('caption_id', req.body.caption_id).first().then(function (up_votes) {
+    var up_votes = up_votes.up_votes
+    var new_up_votes = (up_votes+1)
+    Captions().where('caption_id', req.body.caption_id).update({up_votes:new_up_votes}).then(function (captions_response) {
+      Users().select('total_points').where('facebook_id', req.body.user_facebook_id).then(function (total_points) {
+        var total_points = total_points[0].total_points
+        var new_total_points = (total_points + 1)
+        Users().where('facebook_id', req.body.user_facebook_id).update({total_points:new_total_points}).then(function (users_response) {
+          res.redirect('/#/posts/'+req.params)
+        })
+      })
+    })
+  })
+})
+
 //route to get all pipers for admin dashboard
 router.get('/pipers', function (req, res, next) {
   Users().select('*').then(function (users_response) {
