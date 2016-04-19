@@ -1,91 +1,193 @@
-.aboutInfoContainer{
-  height:auto;
-  width: 70%;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 5vh;
-}
+/*styling for browswer width between 0 and 640px*/
+@media (max-width: 700px) {
+  .aboutInfoContainer{
+    height:auto;
+    width: 70%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 5vh;
+  }
 
-.aboutInfoTextContainer{
-  height:50%;
-  width: 100%;
-}
+  .aboutInfoTextContainer{
+    height:50%;
+    width: 100%;
+  }
 
-.aboutInfoTextContainer h1{
-  color: white;
-  font-size: 2.2em;
-  text-align: center;
-  font-weight:100;
-  margin-bottom: 60px;
-  position: relative;
-  top:6vh;
-}
+  .aboutInfoTextContainer h1{
+    color: white;
+    font-size: 2.2em;
+    text-align: center;
+    font-weight:100;
+    margin-bottom: 60px;
+    position: relative;
+    top:10vh;
+  }
 
-.aboutInfoTextContainer h2{
-  position: relative;
-  top:8vh;
-  color: white;
-  font-size: 1.8em;
-  text-align: center;
-  font-weight:100;
-}
+  .aboutInfoTextContainer h2{
+    position: relative;
+    top:8vh;
+    color: white;
+    font-size: 1.8em;
+    text-align: center;
+    font-weight:100;
+  }
 
-.aboutInfoTextContainer h3{
-  position: relative;
-  top:10vh;
-  color: white;
-  font-size: 1.5em;
-  text-align: center;
-  font-weight:100;
-  /*margin-top: 8vh;*/
-}
+  .aboutInfoTextContainer h3{
+    position: relative;
+    top:10vh;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight:100;
+    /*margin-top: 8vh;*/
+  }
 
-.pepperPicturesContainer{
-  height:auto;
-  width:100%;
-  position: relative;
-  top:18vh;
-}
+  .pepperPicturesContainer{
+    height:auto;
+    width:100%;
+    position: relative;
+    top:18vh;
+  }
 
-.pepperPicturesHolder{
-  height:auto;
-  width:70vw;
-  position: relative;
-  left:20vw;
-}
+  .pepperPicturesHolder{
+    height:auto;
+    width:70vw;
+    position: relative;
+    left:20vw;
+  }
 
-.pepperPicturesHolder img{
-  text-align: center;
-  height:100px;
-  width: 100px;
-  padding: 10px;
-  float:left;
-}
+  .pepperPicturesHolder img{
+    text-align: center;
+    height:100px;
+    width: 100px;
+    padding: 10px;
+    float:left;
+  }
 
-.aboutPageFacebookSignUp{
-  clear:both;
-  height:100%;
-  width:100%;
-  position: relative;
-  top:25vh;
-  height:auto;
-}
+  .aboutPageFacebookSignUp{
+    clear:both;
+    height:100%;
+    width:100%;
+    position: relative;
+    top:25vh;
+    height:auto;
+  }
 
-#aboutFacebookSignInButton{
-  height: 80px;
-  width: 220px;
-  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
-  color:white;
-  font-size: 1.2em;
-  border-radius: 40px 40px 40px 40px;
-  border: none;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  #aboutFacebookSignInButton{
+    height: 80px;
+    width: 220px;
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+    color:white;
+    font-size: 1.2em;
+    border-radius: 40px 40px 40px 40px;
+    border: none;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-#aboutFacebookSignInButton:hover{
-  border: white 2px solid;
-}
+  #aboutFacebookSignInButton:hover{
+    border: white 2px solid;
+  }
+
+
+  }
+
+/*styling for browswer width above 640px*/
+@media (min-width: 640px) {
+  .aboutInfoContainer{
+    height:auto;
+    width: 70%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 5vh;
+  }
+
+  .aboutInfoTextContainer{
+    height:50%;
+    width: 100%;
+  }
+
+  .aboutInfoTextContainer h1{
+    color: white;
+    font-size: 2.2em;
+    text-align: center;
+    font-weight:100;
+    margin-bottom: 60px;
+    position: relative;
+    top:6vh;
+  }
+
+  .aboutInfoTextContainer h2{
+    position: relative;
+    top:8vh;
+    color: white;
+    font-size: 1.8em;
+    text-align: center;
+    font-weight:100;
+  }
+
+  .aboutInfoTextContainer h3{
+    position: relative;
+    top:10vh;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight:100;
+    /*margin-top: 8vh;*/
+  }
+
+  .pepperPicturesContainer{
+    height:auto;
+    width:100%;
+    position: relative;
+    top:18vh;
+  }
+
+  .pepperPicturesHolder{
+    height:auto;
+    width:70vw;
+    position: relative;
+    left:20vw;
+  }
+
+  .pepperPicturesHolder img{
+    text-align: center;
+    height:100px;
+    width: 100px;
+    padding: 10px;
+    float:left;
+  }
+
+  .aboutPageFacebookSignUp{
+    clear:both;
+    height:100%;
+    width:100%;
+    position: relative;
+    top:25vh;
+    height:auto;
+  }
+
+  #aboutFacebookSignInButton{
+    height: 80px;
+    width: 220px;
+    font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+    color:white;
+    font-size: 1.2em;
+    border-radius: 40px 40px 40px 40px;
+    border: none;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #aboutFacebookSignInButton:hover{
+    border: white 2px solid;
+  }
+
+
+  }
