@@ -20,4 +20,6 @@ app.controller("paymentController", ['$scope', '$http', '$auth', '$location', '$
       today = mm+'/'+dd+'/'+yyyy;
       $scope.date = today
 
+//information for paypal payments
+
 }])
