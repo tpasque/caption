@@ -21,19 +21,21 @@
       </div>
     </div>
     <div class="captionContainer" ng-repeat="caption in post.post.caption | orderBy: 'caption_id' | limitTo:4">
-      <p class="captionText">{{caption.caption}}</p>
       <div class="captionUpVoteContainer">
         <form class="captionUpVoteForm" action="/vote" method="POST">
-          <p class="captionUpVote">{{caption.up_votes}}</p>
+          <p class="captionText">{{caption.caption}}</p>
+          <button id="indexPageVoteSubmitButton" type="submit" class='btn btn-primary btn-sm'>Vote &#10004</button>
+          <div class="captionUpVoteNumberContainer">
+            <p class="captionUpVote">{{caption.up_votes}}</p>
+          </div>
           <!-- <a ng-model="{{caption.caption_id}}">&#10004</a> -->
           <input type = "hidden" name = "caption_id" value="{{caption.caption_id}}"></input>
           <input type = "hidden" name = "user_facebook_id" value="{{user}}"></input>
-          <button id="indexPageVoteSubmitButton" type="submit" class='btn btn-primary btn-sm'>Vote &#10004</button>
         </form>
       </div>
     </div>
     <div class="addCaptionContainer">
-      <p class="addCaptionText"><a href="/#/posts/{{post.post.post_id}}">Add Your Caption</a></p>
+      <p class="addCaptionText"><a href="/#/posts/{{post.post.post_id}}">See More or Suggest Your Own &#8250</a></p>
     </div>
   </div>
 

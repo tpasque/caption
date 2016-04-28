@@ -5,7 +5,7 @@
 body{
   height:100%;
   width:100%;
-  background-color: #430961;
+  background-color: white;
   padding-top: 70px;
   z-index: 2;
 }
@@ -22,12 +22,12 @@ body{
   height:20%;
   position: fixed;
   top:0;
-  background-color: #430961;
+  background-color: white;
   z-index: 1;
 }
 
 .indexTitle{
-  color: white;
+  color: #4FDBC3;
   font-size: 6.0em;
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
@@ -47,7 +47,7 @@ body{
 }
 
 .indexCallToAction{
-  color: white;
+  color: #4FDBC3;
   font-size: 1.5em;
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
@@ -64,8 +64,7 @@ body{
 
 .indexAboutText a{
   text-decoration: none;
-  color:white;
-  color: white;
+  color:#4FDBC3;
   font-size: 1.7em;
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
@@ -88,7 +87,7 @@ body{
 #navbar li a{
   font-size: 1.4em;
   text-decoration: none;
-  color: white;
+  color: #4FDBC3;
   font-weight: 200;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
 
@@ -98,13 +97,13 @@ body{
    color:#F3B3B2;
    text-decoration:underline;
    cursor:pointer;
-   background-color: #7D619F;
+   background-color: white;
 }
 
 footer{
   height:8%;
   width:100%;
-  background-color: red;
+  /*background-color: red;*/
 }
 
 #facebookSignInButton{
