@@ -1,19 +1,27 @@
 .showPageContainer{
-  position: fixed;
-  width:90%;
-  height:100%;
-}
-.showPageProfileInfoContainer{
+  /*position: fixed;*/
   width:90vw;
-  height: 50vh;
+  height:70vh;
   position: relative;
-  top:12vh;
-  left: 10vw;
+  left: 5vw;
+  top: 15vh;
+  float:left;
 }
+/*.showPageProfileInfoContainer{
+  width:40vw;
+  height: 60vh;
+  position: relative;
+  border: 1px red solid;
+  float: left;
+}*/
 
 .showPageProfileContainer{
   width:40vw;
-  /*position: relative;*/
+  height: 100%;
+  position: relative;
+  left: 5vw;
+  /*float: left;*/
+
 }
 
 .showPageProfileImage{
@@ -25,14 +33,14 @@
 }
 
 .showPageUserName{
-  color: white;
+  color: #0BB699;
   font-size: 3.5em;
   font-weight:100;
   text-decoration: underline;
 }
 
 .showPageRank{
-  color: white;
+  color: #0BB699;
   font-size: 1.7em;
   font-weight:100;
   position: relative;
@@ -40,7 +48,7 @@
 }
 
 .showPageCaptionAmount{
-  color: white;
+  color: #0BB699;
   font-size: 1.7em;
   font-weight:100;
   position: relative;
@@ -48,7 +56,7 @@
 }
 
 .showPageMoneyEarned{
-  color: white;
+  color: #0BB699;
   font-size: 1.7em;
   font-weight:100;
   position: relative;
@@ -56,7 +64,7 @@
 }
 
 .showPageTotalPoints{
-  color: white;
+  color: #0BB699;
   font-size: 1.7em;
   font-weight:100;
   position: relative;
@@ -64,7 +72,7 @@
 }
 
 .showPagePointsNeeded{
-  color: white;
+  color: #0BB699;
   font-size: 1.7em;
   font-weight:100;
   position: relative;
@@ -72,55 +80,54 @@
 }
 
 /*total hack, need to fix this positioning*/
-#showPageTopCaptionsInfoContainer{
-  /*clear:both;*/
+/*#showPageTopCaptionsInfoContainer{
+  clear:both;
   position: relative;
   top:-38vh;
-  /*width:40vw;
-  float:left;*/
+  width:40vw;
+  float:left;
   left: 15vw;
-}
+}*/
 
 /*more hack*/
-.showPageTopPostsTitle{
-  color: white;
+/*.showPageTopPostsTitle{
+  color: #0BB699;
   font-size: 2.0em;
   font-weight:100;
   position: relative;
-  /*left: 20px;*/
+  left: 20px;
   text-align: center;
   right: 8vw;
   top:-13vh;
-  /*padding-right: 5px;*/
-}
+  padding-right: 5px;
+}*/
 
-.showPageTopCaptionsContainer{
+/*.showPageTopCaptionsContainer{
   position: relative;
   top: -20vh;
   height:40vh;
   width:40vw;
   background-color: white;
   overflow: scroll;
-}
+}*/
 
-.showPageProfileCaptionText{
-  /*padding-left: 10px;*/
+/*.showPageProfileCaptionText{
+  padding-left: 10px;
   padding: 1px;
   font-size: 1.2em;
   color:#77689E;
-}
+}*/
 
 .showPagePepperContainer{
-  width:90vw;
+  width:30vw;
   height: 40vh;
-  /*display:inline;*/
   position: relative;
-  top:15vh;
-  left: 15vw;
+  top:-65vh;
+  left: 50vw;
 }
 
 .showPageFirstPepperContainer{
-  height:55vh;
+  height:auto;
   width: 30vw;
   position: relative;
 }
@@ -138,14 +145,14 @@
 }
 
 /*maybe the biggest hack ever.  need to refactor*/
-.showPageNextPepperContainer{
+/*.showPageNextPepperContainer{
   height:20vh;
   width: 30vw;
   position: relative;
   left: 40vw;
   top: -55vh;
 
-}
+}*/
 
 .showPageNextPepperContainer img{
   display:block;
@@ -156,7 +163,7 @@
 }
 
 .showPagePepperContainer p{
-  color: white;
+  color: #0BB699;
   font-size: 1.7em;
   font-weight:100;
   text-align: center;

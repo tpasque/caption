@@ -1,5 +1,5 @@
-/*styling for browswer width between 0 and 700px*/
-@media (max-width: 700px) {
+/*styling for browswer width between 0 and 640px*/
+@media (max-width: 640px) {
   .userInfoContainer{
     height: 5%;
     width: 40%;
@@ -168,7 +168,7 @@
     color: white;
   }
 
-  /*New section for posts*/
+  /*ADMIN New section for posts*/
 
   .postsNewFormContainer{
     height:auto;
@@ -188,12 +188,12 @@
     text-decoration: underline;
     position: relative;
     top: 0.5vh;
-    color: #532171;
+    color: #0BB699;
   }
 
   .postsNewFormContainer h2{
     text-align: center;
-    color: #C7494C;
+    color: #0BB699;
   }
 
   .postsNewFormContainer label{
@@ -201,7 +201,7 @@
     text-align: center;
     line-height: 150%;
     font-size: .85em;
-    color: #532171;
+    color: #0BB699;
   }
 
   .postsNewFormContainer select{
@@ -384,8 +384,11 @@
 
   .adminPostsIndexContainer table{
     border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    left: 10vw;
+    left: 1vw;
     top:5vh;
     /*border: 1px solid #77689E;*/
   }
@@ -393,32 +396,32 @@
   .adminPostsIndexContainer h2{
     position: relative;
     left: 2vw;
-    color:#77689E;
-    font-size: 2.0em;
+    color:#0BB699;
+    font-size: 1.5em;
   }
 
   .adminPostsIndexContainer h3{
     position: relative;
     left: 2vw;
-    color:#77689E;
-    font-size: 1.8em;
+    color:#0BB699;
+    font-size: 1.3em;
   }
 
   .adminPostsIndexContainer img{
     border-radius: 50%;
-    height: 75px;
-    width: 75px;
+    height: 50px;
+    width: 50px;
     display:block;
     margin-left: auto;
     margin-right: auto;
   }
 
   .adminPostsIndexContainer th{
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid #77689E;
-    color:#77689E;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
   }
 
   .adminPostsIndexContainer tr{
@@ -428,7 +431,7 @@
 
   .adminPostsIndexContainer td{
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1.0em;
     width: 20vh;
     height: 12vh;
     color:#3B0C56;
@@ -439,8 +442,8 @@
 
 
 
-/*styling for browswer width above 700px*/
-@media (min-width: 700px) {
+/*styling for browswer width above 640px*/
+@media (min-width: 640px) {
   .userInfoContainer{
     height: 5%;
     width: 40%;
@@ -621,7 +624,7 @@
   }
 
 
-  /*New section for posts*/
+  /*ADMIN New section for posts*/
 
   .postsNewFormContainer{
     height:auto;
@@ -641,12 +644,12 @@
     text-decoration: underline;
     position: relative;
     top: 0.5vh;
-    color: #532171;
+    color: #0BB699;
   }
 
   .postsNewFormContainer h2{
     text-align: center;
-    color: #C7494C;
+    color: #0BB699;
   }
 
   .postsNewFormContainer label{
@@ -654,7 +657,7 @@
     text-align: center;
     line-height: 150%;
     font-size: .85em;
-    color: #532171;
+    color: #0BB699;
   }
 
   .postsNewFormContainer select{
@@ -826,29 +829,31 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top:11vh;
+    top:13vh;
     overflow: scroll;
   }
 
   .adminPostsIndexContainer table{
     border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     left: 10vw;
     top:5vh;
-    /*border: 1px solid #77689E;*/
   }
 
   .adminPostsIndexContainer h2{
     position: relative;
     left: 2vw;
-    color:#77689E;
+    color:#0BB699;
     font-size: 2.0em;
   }
 
   .adminPostsIndexContainer h3{
     position: relative;
     left: 2vw;
-    color:#77689E;
+    color:#0BB699;
     font-size: 1.8em;
   }
 
@@ -865,8 +870,8 @@
     font-size: 1.5em;
     padding: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid #77689E;
-    color:#77689E;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
   }
 
   .adminPostsIndexContainer tr{

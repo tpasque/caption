@@ -27,7 +27,7 @@ body{
 }
 
 .indexTitle{
-  color: #4FDBC3;
+  color: #0BB699;
   font-size: 6.0em;
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
@@ -47,7 +47,7 @@ body{
 }
 
 .indexCallToAction{
-  color: #4FDBC3;
+  color: #0BB699;
   font-size: 1.5em;
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
@@ -64,7 +64,7 @@ body{
 
 .indexAboutText a{
   text-decoration: none;
-  color:#4FDBC3;
+  color:#0BB699;
   font-size: 1.7em;
   text-align: center;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
@@ -87,7 +87,7 @@ body{
 #navbar li a{
   font-size: 1.4em;
   text-decoration: none;
-  color: #4FDBC3;
+  color: #0BB699;
   font-weight: 200;
   /*font-family: 'Andale Mono', AndaleMono, monospace;*/
 

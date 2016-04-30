@@ -1,86 +1,180 @@
-.adminPaymentsContainer{
-  height:auto;
-  width: 95%;
-  background-color: white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top:11vh;
-  overflow: scroll;
+/*styling for browswer width between 0 and 640px*/
+@media (max-width: 640px) {
+  .adminPaymentsContainer{
+    height:auto;
+    width: 95%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+    overflow: scroll;
+  }
+
+  .adminPaymentsContainer table{
+    border-collapse: collapse;
+    position: relative;
+    top:5vh;
+  }
+
+  .adminPaymentsContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.8em;
+  }
+  .adminPaymentsContainer h3{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.5em;
+  }
+
+  .adminPaymentsBrandImage{
+    border-radius: 50%;
+    height: 25px;
+    width: 40px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .adminPaymentsPostImage{
+    height: 40px;
+    width: 40px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .adminPaymentsPiperImage{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .adminPaymentsContainer th{
+    font-size: 0.8em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
+
+  .adminPaymentsContainer tr{
+    border-spacing: 2.0rem
+
+  }
+
+  .adminPaymentsContainer td{
+    text-align: center;
+    font-size: 0.8em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
+
+  .adminPaymentsContainer td:last-child{
+    text-align: left;
+    font-size: 0.8em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
+
 }
 
-.adminPaymentsContainer table{
-  border-collapse: collapse;
-  position: relative;
-  top:5vh;
-}
+/*styling for browswer width above 640px*/
+@media (min-width: 640px) {
+  .adminPaymentsContainer{
+    height:auto;
+    width: 95%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+    overflow: scroll;
+  }
 
-.adminPaymentsContainer h2{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 2.0em;
-}
-.adminPaymentsContainer h3{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 1.5em;
-}
+  .adminPaymentsContainer table{
+    border-collapse: collapse;
+    position: relative;
+    top:5vh;
+  }
 
-.adminPaymentsBrandImage{
-  border-radius: 50%;
-  height: 35px;
-  width: 50px;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .adminPaymentsContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 2.0em;
+  }
+  .adminPaymentsContainer h3{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.5em;
+  }
 
-.adminPaymentsPostImage{
-  height: 50px;
-  width: 50px;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .adminPaymentsBrandImage{
+    border-radius: 50%;
+    height: 35px;
+    width: 50px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.adminPaymentsPiperImage{
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .adminPaymentsPostImage{
+    height: 50px;
+    width: 50px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .adminPaymentsPiperImage{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 
-.adminPaymentsContainer th{
-  font-size: 1.2em;
-  padding: 0.5rem;
-  text-align: center;
-  border-bottom: 1px solid #77689E;
-  color:#77689E;
-}
+  .adminPaymentsContainer th{
+    font-size: 1.2em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
 
-.adminPaymentsContainer tr{
-  border-spacing: 2.0rem
+  .adminPaymentsContainer tr{
+    border-spacing: 2.0rem
 
-}
+  }
 
-.adminPaymentsContainer td{
-  text-align: center;
-  font-size: 1.1em;
-  width: 20vh;
-  height: 12vh;
-  color:#3B0C56;
-}
+  .adminPaymentsContainer td{
+    text-align: center;
+    font-size: 1.1em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
 
-.adminPaymentsContainer td:last-child{
-  text-align: left;
-  font-size: 1.1em;
-  width: 20vh;
-  height: 12vh;
-  color:#3B0C56;
+  .adminPaymentsContainer td:last-child{
+    text-align: left;
+    font-size: 1.1em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
 }

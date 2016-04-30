@@ -1,5 +1,5 @@
 .adminTrafficControllerTitle{
-  color:white;
+  color:#0BB699;
   position: relative;
   top: 10vh;
   display:block;
@@ -8,7 +8,7 @@
 }
 
 .adminTrafficControllerTitle h1{
-  color:white;
+  color:#0BB699;
   position: relative;
   text-align: center;
 }
@@ -33,7 +33,7 @@
 }
 
 .adminAddControlContainer h1{
-  color: #777777;
+  color: #0BB699;
   position: relative;
   text-align: center;
 }

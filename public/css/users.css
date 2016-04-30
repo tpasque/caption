@@ -1,127 +1,262 @@
-.allUserContainer{
-  height:90vh;
-  width: 90%;
-  background-color: white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top:11vh;
-  overflow: scroll;
+/*styling for browswer width between 0 and 640px*/
+@media (max-width: 640px) {
+  .allUserContainer{
+    height:90vh;
+    width: 90%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+    overflow: scroll;
+  }
+
+  .allUserContainer table{
+    border-collapse: collapse;
+    position: relative;
+    left: 2vw;
+    top:5vh;
+    /*border: 1px solid #77689E;*/
+  }
+
+  .allUserContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.8em;
+  }
+
+  .allUserContainer h3{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.5em;
+  }
+
+  .allUserContainer img{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .allUserContainer th{
+    font-size: 1.0em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
+
+  .allUserContainer tr{
+    border-spacing: 2.0rem
+
+  }
+
+  .allUserContainer td{
+    text-align: center;
+    font-size: 1.0em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+    overflow: scroll;
+  }
+
+  .allUserContainer td:last-child{
+    text-align: left;
+  }
+
+  /*top pipers / leaderboard css*/
+
+
+  .topPipersContainer{
+    height:90vh;
+    width: 70%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+  }
+
+  .topPipersContainer table{
+    border-collapse: collapse;
+    position: relative;
+    left: 5vw;
+    top:5vh;
+    /*border: 1px solid #77689E;*/
+  }
+
+  .topPipersContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 2.0em;
+  }
+
+
+  .topPipersContainer img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .topPipersContainer th{
+    font-size: 1.5em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
+
+  .topPipersContainer tr{
+    border-spacing: 2.0rem
+
+  }
+
+  .topPipersContainer td{
+    text-align: center;
+    font-size: 1.3em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
+
 }
+/*styling for browswer width above 640px*/
+@media (min-width: 640px) {
+  .allUserContainer{
+    height:90vh;
+    width: 90%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+    overflow: scroll;
+  }
 
-.allUserContainer table{
-  border-collapse: collapse;
-  position: relative;
-  left: 2vw;
-  top:5vh;
-  /*border: 1px solid #77689E;*/
-}
+  .allUserContainer table{
+    border-collapse: collapse;
+    position: relative;
+    left: 2vw;
+    top:5vh;
+    /*border: 1px solid #77689E;*/
+  }
 
-.allUserContainer h2{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 2.0em;
-}
+  .allUserContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 2.0em;
+  }
 
-.allUserContainer h3{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 1.8em;
-}
+  .allUserContainer h3{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.8em;
+  }
 
-.allUserContainer img{
-  border-radius: 50%;
-  height: 75px;
-  width: 75px;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .allUserContainer img{
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.allUserContainer th{
-  font-size: 1.5em;
-  padding: 0.5rem;
-  text-align: center;
-  border-bottom: 1px solid #77689E;
-  color:#77689E;
-}
+  .allUserContainer th{
+    font-size: 1.5em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
 
-.allUserContainer tr{
-  border-spacing: 2.0rem
+  .allUserContainer tr{
+    border-spacing: 2.0rem
 
-}
+  }
 
-.allUserContainer td{
-  text-align: center;
-  font-size: 1.3em;
-  width: 20vh;
-  height: 12vh;
-  color:#3B0C56;
-}
+  .allUserContainer td{
+    text-align: center;
+    font-size: 1.3em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
 
-.allUserContainer td:last-child{
-  text-align: left;
-}
+  .allUserContainer td:last-child{
+    text-align: left;
+  }
 
-/*top pipers / leaderboard css*/
-
-
-.topPipersContainer{
-  height:90vh;
-  width: 70%;
-  background-color: white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top:11vh;
-}
-
-.topPipersContainer table{
-  border-collapse: collapse;
-  position: relative;
-  left: 15vw;
-  top:5vh;
-  /*border: 1px solid #77689E;*/
-}
-
-.topPipersContainer h2{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 2.5em;
-}
+  /*top pipers / leaderboard css*/
 
 
-.topPipersContainer img{
-  border-radius: 50%;
-  height: 75px;
-  width: 75px;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .topPipersContainer{
+    height:90vh;
+    width: 70%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+  }
 
-.topPipersContainer th{
-  font-size: 1.7em;
-  padding: 0.5rem;
-  text-align: center;
-  border-bottom: 1px solid #77689E;
-  color:#77689E;
-}
+  .topPipersContainer table{
+    border-collapse: collapse;
+    position: relative;
+    left: 15vw;
+    top:5vh;
+    /*border: 1px solid #77689E;*/
+  }
 
-.topPipersContainer tr{
-  border-spacing: 2.0rem
+  .topPipersContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 2.5em;
+  }
 
-}
 
-.topPipersContainer td{
-  text-align: center;
-  font-size: 1.5em;
-  width: 20vh;
-  height: 12vh;
-  color:#3B0C56;
+  .topPipersContainer img{
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .topPipersContainer th{
+    font-size: 1.7em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
+
+  .topPipersContainer tr{
+    border-spacing: 2.0rem
+
+  }
+
+  .topPipersContainer td{
+    text-align: center;
+    font-size: 1.5em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
 }

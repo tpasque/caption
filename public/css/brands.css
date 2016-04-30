@@ -1,117 +1,249 @@
-.brandAddFormContainer{
-  height:auto;
-  width: 70%;
-  background-color: white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top:11vh;
+/*styling for browswer width between 0 and 640px*/
+@media (max-width: 640px) {
+  .brandAddFormContainer{
+    height:50vh;
+    width: 60%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+  }
+
+  .brandAddFormContainer h1{
+    text-align: center;
+    text-decoration: underline;
+    position: relative;
+    top: 0.5vh;
+    color: #0BB699;
+  }
+
+  .brandAddFormContainer h2{
+    text-align: center;
+    color: #0BB699;
+  }
+
+  .brandAddFormContainer label{
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: .85em;
+    color: #0BB699;
+  }
+
+  .brandAddFormContainer input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+  }
+
+  #newBrandSubmitButton{
+    margin-top: 20px;
+    color:white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*admin page - view all brands*/
+
+  .allBrandContainer{
+    height:90vh;
+    width: 70%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+  }
+
+  .allBrandContainer table{
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left:5vw;
+    top:5vh;
+    /*border: 1px solid #77689E;*/
+  }
+
+  .allBrandContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.8em;
+  }
+
+  .allBrandContainer h3{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.5em;
+  }
+
+  .allBrandContainer img{
+    border-radius: 50%;
+    height: 50px;
+    width: 75px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .allBrandContainer th{
+    font-size: 1.2em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
+
+  .allBrandContainer tr{
+    border-spacing: 2.0rem
+
+  }
+
+  .allBrandContainer td{
+    text-align: center;
+    font-size: 1.1em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
+
+  .allBrandContainer td:last-child{
+    text-align: left;
+  }
+
 }
 
-.brandAddFormContainer h1{
-  text-align: center;
-  text-decoration: underline;
-  position: relative;
-  top: 0.5vh;
-  color: #532171;
-}
+/*styling for browswer above 640px*/
+@media (min-width: 640px) {
 
-.brandAddFormContainer h2{
-  text-align: center;
-  color: #C7494C;
-}
+  .brandAddFormContainer{
+    height:50vh;
+    width: 60%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+  }
 
-.brandAddFormContainer label{
-  display: block;
-  text-align: center;
-  line-height: 150%;
-  font-size: .85em;
-  color: #532171;
-}
+  .brandAddFormContainer h1{
+    text-align: center;
+    text-decoration: underline;
+    position: relative;
+    top: 0.5vh;
+    color: #0BB699;
+  }
 
-.brandAddFormContainer input{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  height: 40px;
-  text-align: center;
-}
+  .brandAddFormContainer h2{
+    text-align: center;
+    color: #0BB699;
+  }
 
-#newBrandSubmitButton{
-  margin-top: 20px;
-  color:white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .brandAddFormContainer label{
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: .85em;
+    color: #0BB699;
+  }
 
-/*admin page - view all brands*/
+  .brandAddFormContainer input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+  }
 
-.allBrandContainer{
-  height:90vh;
-  width: 70%;
-  background-color: white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top:11vh;
-}
+  #newBrandSubmitButton{
+    margin-top: 20px;
+    color:white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.allBrandContainer table{
-  border-collapse: collapse;
-  position: relative;
-  left: 15vw;
-  top:5vh;
-  /*border: 1px solid #77689E;*/
-}
+  /*admin page - view all brands*/
 
-.allBrandContainer h2{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 2.0em;
-}
+  .allBrandContainer{
+    height:90vh;
+    width: 70%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top:11vh;
+  }
 
-.allBrandContainer h3{
-  position: relative;
-  left: 2vw;
-  color:#77689E;
-  font-size: 1.8em;
-}
+  .allBrandContainer table{
+    border-collapse: collapse;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 15vw;
+    top:5vh;
+    /*border: 1px solid #77689E;*/
+  }
 
-.allBrandContainer img{
-  border-radius: 50%;
-  height: 75px;
-  width: 90px;
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .allBrandContainer h2{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 2.0em;
+  }
 
-.allBrandContainer th{
-  font-size: 1.5em;
-  padding: 0.5rem;
-  text-align: center;
-  border-bottom: 1px solid #77689E;
-  color:#77689E;
-}
+  .allBrandContainer h3{
+    position: relative;
+    left: 2vw;
+    color:#0BB699;
+    font-size: 1.8em;
+  }
 
-.allBrandContainer tr{
-  border-spacing: 2.0rem
+  .allBrandContainer img{
+    border-radius: 50%;
+    height: 75px;
+    width: 90px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-}
+  .allBrandContainer th{
+    font-size: 1.5em;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #0BB699;
+    color:#0BB699;
+  }
 
-.allBrandContainer td{
-  text-align: center;
-  font-size: 1.3em;
-  width: 20vh;
-  height: 12vh;
-  color:#3B0C56;
-}
+  .allBrandContainer tr{
+    border-spacing: 2.0rem
 
-.allBrandContainer td:last-child{
-  text-align: left;
+  }
+
+  .allBrandContainer td{
+    text-align: center;
+    font-size: 1.3em;
+    width: 20vh;
+    height: 12vh;
+    color:#3B0C56;
+  }
+
+  .allBrandContainer td:last-child{
+    text-align: left;
+  }
 }

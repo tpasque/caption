@@ -1,5 +1,5 @@
 /*styling for browswer width between 0 and 640px*/
-@media (max-width: 700px) {
+@media (max-width: 640px) {
   .aboutInfoContainer{
     height:auto;
     width: 70%;
@@ -16,7 +16,7 @@
   }
 
   .aboutInfoTextContainer h1{
-    color: #4FDBC3;
+    color: #0BB699;
     font-size: 2.2em;
     text-align: center;
     font-weight:100;
@@ -28,7 +28,7 @@
   .aboutInfoTextContainer h2{
     position: relative;
     top:8vh;
-    color: #4FDBC3;
+    color: #0BB699;
     font-size: 1.8em;
     text-align: center;
     font-weight:100;
@@ -37,7 +37,7 @@
   .aboutInfoTextContainer h3{
     position: relative;
     top:10vh;
-    color: #4FDBC3;
+    color: #0BB699;
     font-size: 1.5em;
     text-align: center;
     font-weight:100;
@@ -96,7 +96,7 @@
   }
 
 /*styling for browswer width above 700px*/
-@media (min-width: 700px) {
+@media (min-width: 640px) {
   .aboutInfoContainer{
     height:auto;
     width: 70%;
@@ -113,7 +113,7 @@
   }
 
   .aboutInfoTextContainer h1{
-    color: #4FDBC3;
+    color: #0BB699;
     font-size: 2.2em;
     text-align: center;
     font-weight:100;
@@ -125,7 +125,7 @@
   .aboutInfoTextContainer h2{
     position: relative;
     top:8vh;
-    color: #4FDBC3;
+    color: #0BB699;
     font-size: 1.8em;
     text-align: center;
     font-weight:100;
@@ -134,7 +134,7 @@
   .aboutInfoTextContainer h3{
     position: relative;
     top:10vh;
-    color: #4FDBC3;
+    color: #0BB699;
     font-size: 1.5em;
     text-align: center;
     font-weight:100;
