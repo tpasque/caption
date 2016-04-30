@@ -22,17 +22,12 @@
         <div class="captionUpVoteContainer">
           <form class="captionUpVoteForm" action="/vote/"{{caption.caption_id}} method="POST">
             <p class="showPageCaptionText">{{caption.caption}}</p>
-            <button id="showPageVoteSubmitButton" type="submit" class='btn btn-primary btn-sm'>Vote &#10004</button>
-            <div class="showPageCaptionUpVoteContainer">
-              <p class="showPageCaptionUpVote">{{caption.up_votes}}</p>
-            </div>
-            <!-- <a ng-model="{{caption.caption_id}}">&#10004</a> -->
+            <button id="showPageVoteSubmitButton" type="submit">&#9650<br>{{caption.up_votes}}</button>
             <input type = "hidden" name = "caption_id" value="{{caption.caption_id}}"></input>
             <input type = "hidden" name = "user_facebook_id" value="{{user}}"></input>
           </form>
         </div>
       </div>
-
     </div>
 
   </div>
